@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import '../App.css';
@@ -21,6 +21,7 @@ componentDidMount() {
     //starts the listener for
     this.props.firstInLine({ ref });
     this.props.getCount({ ref });
+      window.addEventListener("beforeunload", this.onUnload);
   } else {
 console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         }
@@ -40,6 +41,17 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
       );
    }, 10000);*/
 }
+
+onUnload(event) { // the method that will be used for both add and remove event
+        console.log("hellooww")
+        event.returnValue = "If you refresh, you will be delete from this queue!";
+    }
+    componentWillUnmount() {
+           window.removeEventListener("beforeunload", this.onUnload);
+       }
+
+
+
 
 //when quiting queue
 onQuitPress() {
@@ -73,7 +85,7 @@ renderImage() {
   const icon = this.props.firstGender === 'female' ? require('./images/studassqueuewoman3.png') : require('./images/studassqueue3.png');
   return (
     <img
-      style={{ height: 300, width: 300 }}
+      style={{ height: 200, width: 200 }}
       src={icon}
     />
   );
@@ -85,7 +97,7 @@ renderEmptyImage() {
   /* eslint-disable global-require */
   return (
     <img
-    style={{ height: 300, width: 300 }}
+    style={{ height: 200, width: 200 }}
     src={require('./images/emptyLine2.png')}
     />
   );
@@ -110,7 +122,23 @@ renderScreen() {
     /* eslint-disable global-require */
   if (this.props.studasscount === 0) {
     return (
-      <div className="home-main">
+      <div>
+      <div className="App">
+
+        <div className="App-header">
+          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
+          <div>
+            <button onClick={console.log('df')}
+              className="btn btn-primary"
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+            >
+              About us
+            </button>
+
+          </div>
+        </div>
+
+        <div className="queue-info-main">
 
         <div>
           <h2>Next in line:</h2>
@@ -124,28 +152,61 @@ renderScreen() {
 
 
         <div>
-          <button onClick={this.onQuitPress.bind(this)}>
+          <button onClick={this.onQuitPress.bind(this)}
+            className="btn btn-primary"
+            type="button"
+            style={{ borderRadius: 5, backgroundColor: '#95CAFE', borderWidth: 0, marginTop: 5 }}
+          >
             QUIT
           </button>
-          <button onClick={this.onNextPress.bind(this)}>
+          <button onClick={this.onNextPress.bind(this)}
+            className="btn btn-primary"
+            type="button"
+            style={{ borderRadius: 5, backgroundColor: '#2ecc71', borderWidth: 0, marginTop: 5, width: 150 }}
+          >
             NEXT
           </button>
         </div>
 
 
       </div>
+
+
+    </div>
+    <div className="under-Div">
+      <h1>ABOUT US</h1>
+      <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+      <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+      </div>
+  </div>
       );
   }
     /* eslint-enable global-require */
     return (
-      <div className="home-main">
+      <div>
+      <div className="App">
+
+        <div className="App-header">
+          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
+          <div>
+            <button onClick={console.log('df')}
+              className="btn btn-primary"
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+            >
+              About us
+            </button>
+
+          </div>
+        </div>
+
+        <div className="queue-info-main">
 
         <div>
           <h2>Next in line:</h2>
         </div>
 
         <div>
-          {this.renderEmptyImage()}
+          {this.renderImage()}
         </div>
 
       <h2>{this.props.first}</h2>
@@ -163,6 +224,15 @@ renderScreen() {
 
 
       </div>
+
+
+    </div>
+    <div className="under-Div">
+      <h1>ABOUT US</h1>
+      <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+      <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+      </div>
+  </div>
       );
 }
 

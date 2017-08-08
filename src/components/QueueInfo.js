@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import '../App.css';
 
 import { setInfo, getCount, addToQueue } from '../actions';
@@ -19,11 +20,75 @@ componentDidMount() {
     const { ref } = firebase.database().ref(`Subject/${this.props.subject}/studasslist/${this.props.studassLocation}/queue`);
     //starts the listener for
     this.props.getCount(ref);
+    this.checkRecover();
   } else {
 console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         }
   });
 }
+
+checkRecover() {
+  console.log('Checkrecover');
+  const userUID = firebase.auth().currentUser.uid;
+  if (this.props.studassSubject !== '') {
+  ///////////////////////CHECKS IF EXIST AS STUDENT assistant//////////////////////////////////
+        const ref = firebase.database().ref(`Subject/${this.props.studassSubject}/studasslist`);
+              ref.once('value', snapshot => { // only called once
+            console.log(snapshot.val() === null);
+            //if the queue is empty ( in case studass deletes it)
+            //we jump over iterating becouse we know we are not there
+            if (snapshot.val() === null) {
+              return true;
+            }
+            snapshot.forEach(childSnapshot => {
+              //should recover studasqueue if userid existst at location
+              console.log('CHILD_UID', childSnapshot.val().userUID);
+              console.log('MY_UID', userUID);
+
+              if (userUID === childSnapshot.val().userUID) {
+                //sets needed values to state
+                //continues queue
+                browserHistory.push('/StudassQueue');
+
+              }
+              //if it doesent find anything, it is all good
+            });
+          });
+        }
+      ///////////////////////////////////////////////////////////////////////////////////////
+      if (this.props.subject !== '') {
+        console.log('CHECK INLINE', this.props.subject, this.props.studassLocation );
+
+      ////////////////CHECKS IF ADDED TO A LINE/////////////////////////////////////////////
+      const studRef = firebase.database().ref(`Subject/${this.props.subject}/studasslist/${this.props.studassLocation}/queue`);
+      console.log('HELLOOOO');
+            studRef.once('value', snapshot => { // only called once
+          console.log(snapshot.val() === null);
+          //if the queue is empty ( in case studass deletes it)
+          //we jump over iterating becouse we know we are not there
+          if (snapshot.val() === null) {
+            return true;
+          }
+          snapshot.forEach(childSnapshot => {
+            //should recover studasqueue if userid existst at location
+            console.log('CHILD_UID', childSnapshot.val().userUID);
+            console.log('MY_UID', userUID);
+
+            if (userUID === childSnapshot.val().userUID) {
+              //sets needed values to state
+
+
+              //continues queue
+              browserHistory.push('/InQueue');
+
+            }
+            //if it doesent find anything, it is all good
+          });
+        });
+      }
+      ///////////////////////////////////////////////////////////////////////////////
+}
+
 onButtonBluePress() {
   //gets user name from props (value is retireved and sat to reducer in home-scene)
   const { myGender } = this.props;
@@ -86,51 +151,58 @@ renderScreen() {
       <div>
       <div className="App">
 
+        <div style={{ height: 180, flexDirection: 'column' }}>
         <div className="App-header">
           <img src={require('./images/Header.png')} className="header-image" alt="logo" />
-          <div>
-            <button onClick={console.log('df')}
-              className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
-            >
-              About us
-            </button>
-          </div>
+          <button onClick={console.log('df')}
+            className="btn btn-primary"
+            style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+          >
+            About us
+          </button>
         </div>
+        <div className="list-header">
+          <h1>you are about to enter the following line:</h1>
+          <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
+        </div>
+      </div>
 
         <div className="queue-info-main">
 
 
-                        <div className="info-container" >
+                        <div className="info-header" >
                           <h2>{this.props.studass}</h2>
                         </div>
 
                         <div className="info-container" >
-                          <h2>People in line: </h2>
+                          <h2 style={{ color: '#F58C6C' }}>People in line: </h2>
                           <h2>{this.props.studasscount}</h2>
                         </div>
 
 
                         <div className="info-container" >
-                          <h2>Subject: </h2>
+                          <h2 style={{ color: '#F58C6C' }}>Subject: </h2>
                           <h2>{this.props.subject}</h2>
                         </div>
 
 
                         <div className="info-container" >
-                          <h2>Available until: </h2>
+                          <h2 style={{ color: '#F58C6C' }}>Available until: </h2>
                           <h2>{this.props.available}</h2>
                         </div>
 
                         <div className="info-container" >
-                          <h2>Room: </h2>
+                          <h2 style={{ color: '#F58C6C' }}>Room: </h2>
                           <h2>{this.props.room}</h2>
                         </div>
 
 
 
                   <div style={{ height: 60, marginTop: 5, marginLeft: 40, marginRight: 40 }}>
-                    <button onClick={this.onButtonBluePress.bind(this)}>
+                    <button onClick={this.onButtonBluePress.bind(this)}
+                      className="btn btn-primary"
+                      style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, width: 300, height: 60 }}
+                    >
                       Add me to queue
                     </button>
                   </div>
@@ -149,7 +221,6 @@ renderScreen() {
 }
 
   render() {
-      console.log(this.props);
     return (
       this.renderScreen()
       );
@@ -162,8 +233,8 @@ renderScreen() {
     const { subject, studass, available, studassLocation, room } = state.queueInfo;
     const { studasscount } = state.count;
     const { myGender } = state.nameRed;
-
-    return { subject, studass, available, studasscount, studassLocation, myGender, room };
+    const { studassSubject } = state.createQueue;
+    return { subject, studass, available, studasscount, studassLocation, myGender, room, studassSubject };
   };
 
   export default connect(mapStateToProps, { setInfo, getCount, addToQueue })(QueueInfo);

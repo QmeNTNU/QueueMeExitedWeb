@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import '../App.css';
@@ -21,11 +21,20 @@ componentDidMount() {
     this.props.getCount({ ref });
     console.log('-----------');
     this.props.findMyPlaceInLine({ ref });
+    window.addEventListener("beforeunload", this.onUnload);
   } else {
 console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         }
   });
 }
+
+onUnload(event) { // the method that will be used for both add and remove event
+        console.log("hellooww")
+        event.returnValue = "If you refresh, you will be delete from this queue!";
+    }
+    componentWillUnmount() {
+           window.removeEventListener("beforeunload", this.onUnload);
+       }
 
 onQuitPress() {
 //gets ref to delete
@@ -50,9 +59,8 @@ renderImage() {
   const icon = this.props.myGender === 'female' ? require('./images/inqueuewoman3.png') : require('./images/inqueue3.png');
   return (
     <img
-      style={{height: 100, width: 100 }}
-      resizeMode="contain"
-      source={icon}
+      style={{height: 300, width: 300 }}
+      src={icon}
     />
   );
 /* eslint-enable global-require */
@@ -65,22 +73,50 @@ renderImage() {
 renderScreen() {
 
     return (
-      <div style={{ flex: 1, flexDirection: 'column'  }}>
-        <div style={{   height: 40, justifyContent: 'center', alignItems: 'center',   backgroundColor: '#F58C6C'}}>
-          <h2>
-          Next in line:
-          </h2>
+      <div>
+      <div className="App">
+
+        <div className="App-header">
+          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
+          <div>
+            <button onClick={console.log('df')}
+              className="btn btn-primary"
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+            >
+              About us
+            </button>
+
+          </div>
         </div>
-        {this.renderImage()}
 
-        <h2> {this.props.place}/{this.props.studasscount}</h2>
+        <div className="queue-info-main">
 
-      <div style={{ height: 60, marginTop: 5, marginLeft: 40, marginRight: 40 }}>
-        <button onClick={this.onQuitPress.bind(this)}>
-          quit queue
-        </button>
+            {this.renderImage()}
+
+            <div className="inQueue-info" >
+              <h3>you are nr</h3>
+              <img src={require('./images/divider.png')} style={{width: 100}} alt="logo" />
+              <h3> {this.props.place}/{this.props.studasscount}</h3>
+            </div>
+
+            <button onClick={this.onQuitPress.bind(this)}
+              className="btn btn-primary"
+              style={{ borderRadius: 5, backgroundColor: '#95CAFE', borderWidth: 0 }}
+            >
+              quit queue
+            </button>
+
+
+        </div>
+
+
       </div>
-      </div>
+      <div className="under-Div">
+        <h1>ABOUT US</h1>
+        <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+        <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+        </div>
+    </div>
       );
 }
 

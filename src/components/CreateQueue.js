@@ -1,14 +1,86 @@
 import React, {Component} from 'react'
 import _ from 'lodash';
 import firebase from 'firebase';
+import { browserHistory } from 'react-router';
+
 import { connect } from 'react-redux'; //to get acces to the actioncreater
 import { availableChanged, roomChanged, makeQueue, alertNotify } from '../actions'; //all the actions in the actioncreator
 import AlertContainer from 'react-alert';
 import '../App.css';
 
+
 class CreateQueue extends Component {
 
-  //calls the reducer to update the state every time the text is changed
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      this.checkRecover();
+      console.log('FIREBASE USER NAME', user);
+    } else {
+console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
+          }
+    });
+
+  }
+
+  checkRecover() {
+    console.log('Checkrecover');
+    const userUID = firebase.auth().currentUser.uid;
+    if (this.props.studassSubject !== '') {
+    ///////////////////////CHECKS IF EXIST AS STUDENT assistant//////////////////////////////////
+          const ref = firebase.database().ref(`Subject/${this.props.studassSubject}/studasslist`);
+                ref.once('value', snapshot => { // only called once
+              console.log(snapshot.val() === null);
+              //if the queue is empty ( in case studass deletes it)
+              //we jump over iterating becouse we know we are not there
+              if (snapshot.val() === null) {
+                return true;
+              }
+              snapshot.forEach(childSnapshot => {
+                //should recover studasqueue if userid existst at location
+                console.log('CHILD_UID', childSnapshot.val().userUID);
+                console.log('MY_UID', userUID);
+
+                if (userUID === childSnapshot.val().userUID) {
+                  //sets needed values to state
+                  //continues queue
+                  browserHistory.push('/StudassQueue');
+
+                }
+                //if it doesent find anything, it is all good
+              });
+            });
+          }
+        ///////////////////////////////////////////////////////////////////////////////////////
+        if (this.props.subject !== '' && this.props.studassLocation !== '') {
+        ////////////////CHECKS IF ADDED TO A LINE/////////////////////////////////////////////
+        const { studRef } = firebase.database().ref(`Subject/${this.props.subject}/studasslist/${this.props.studassLocation}/queue`);
+              studRef.once('value', snapshot => { // only called once
+            console.log(snapshot.val() === null);
+            //if the queue is empty ( in case studass deletes it)
+            //we jump over iterating becouse we know we are not there
+            if (snapshot.val() === null) {
+              return true;
+            }
+            snapshot.forEach(childSnapshot => {
+              //should recover studasqueue if userid existst at location
+              console.log('CHILD_UID', childSnapshot.val().userUID);
+              console.log('MY_UID', userUID);
+
+              if (userUID === childSnapshot.val().userUID) {
+                //sets needed values to state
+
+
+                //continues queue
+                browserHistory.push('/InQueue');
+
+              }
+              //if it doesent find anything, it is all good
+            });
+          });
+        }
+        ///////////////////////////////////////////////////////////////////////////////
+  }
     onAvailableChange(text) {
       this.props.availableChanged(text);
     }
@@ -38,8 +110,7 @@ class CreateQueue extends Component {
     /* eslint-disable global-require */
     return (
       <img
-        style={{ height: 300, width: 300 }}
-        resizeMode="contain"
+        style={{ height: 200, width: 200 }}
         src={require('./images/alarm3.png')}
       />
     );
@@ -62,11 +133,11 @@ class CreateQueue extends Component {
 
 
   alertOptions = {
-      offset: 14,
-      position: 'top left',
-      theme: 'dark',
-      time: 5000,
-      transition: 'scale'
+    offset: 14,
+    position: 'bottom left',
+    theme: 'ligth',
+    time: 5000,
+    transition: 'scale'
     }
 
   showAlert = () => {
@@ -84,35 +155,67 @@ class CreateQueue extends Component {
     }
 
     return (
-      <div className="auth-form" >
-        <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-        <div className="auth-input">
-          <h2>{this.props.studassSubject}</h2>
-          {this.renderImage()}
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Available up to"
-            onChange={event => this.onAvailableChange(event.target.value)}
-          />
-          <input
-            className="form-control"
-            type="text"
-            placeholder="rooom number"
-            onChange={event => this.onRoomChange(event.target.value)}
+      <div>
+      <div className="App">
 
-          />
+        <div style={{ height: 180, flexDirection: 'column' }}>
+        <div className="App-header">
+          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
+          <button onClick={console.log('df')}
+            className="btn btn-primary"
+            style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+          >
+            About us
+          </button>
+        </div>
+        <div className="list-header">
+          <h1>you're about to start a queue in {this.props.studassSubject}</h1>
 
         </div>
+      </div>
 
-        <button onClick={this.onButtonPress.bind(this)}
-          className="btn btn-primary"
-          style={{ borderRadius: 10, backgroundColor: '#F58C6C' }}
-        >
-          Create Queue
-        </button>
+        <div className="list-container">
+          <div className="auth-form" >
+            <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+            <div className="auth-input">
+
+              {this.renderImage()}
+                <div className="createQueue-info" >
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Available up to"
+                style={{ marginBottom: 5 }}
+                onChange={event => this.onAvailableChange(event.target.value)}
+              />
+              <input
+                className="form-control"
+                type="text"
+                placeholder="rooom number"
+                onChange={event => this.onRoomChange(event.target.value)}
+
+              />
+
+            </div>
+            </div>
+            <button onClick={this.onButtonPress.bind(this)}
+              className="btn btn-primary"
+              style={{ borderRadius: 3, backgroundColor: '#F58C6C', width: 300, borderWidth: 0, marginTop: 5 }}
+            >
+              Create Queue
+            </button>
+
+
+          </div>
+        </div>
 
       </div>
+      <div className="under-Div">
+        <h1>ABOUT US</h1>
+        <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+        <small>Available on mobile</small>
+        </div>
+    </div>
     );
   }
 }
@@ -121,9 +224,10 @@ const mapStateToProps = (state) => {
   const { available, room, loadingButton, error, studassSubject } = state.createQueue;
   const { myGender } = state.nameRed;
   const { alertMessage } = state.alert;
+  const { studassLocation, subject } = state.queueInfo;
 
   //createQueue is from the reducer/index and is the reucer!
-  return { available, room, loadingButton, error, studassSubject, myGender, alertMessage };
+  return { available, room, loadingButton, error, studassSubject, myGender, alertMessage, studassLocation, subject };
 };
 
 //have to add on the connector for redux to work
