@@ -44,11 +44,11 @@ class SignUp extends Component {
  }
 
   alertOptions = {
-      offset: 14,
-      position: 'top left',
-      theme: 'dark',
-      time: 5000,
-      transition: 'scale'
+    offset: 14,
+    position: 'bottom left',
+    theme: 'ligth',
+    time: 5000,
+    transition: 'scale'
     }
 
   showAlert = () => {
@@ -66,14 +66,16 @@ class SignUp extends Component {
       return(
         <div>
         <button onClick={() => this.setState({ gender: 'male' })}
-          className="auth-btn"
+          className="btn btn-primary"
           type="button"
+          style={{ flex: 1, width: 150, backgroundColor: '#F58C6C', borderWidth: 0}}
         >
           MALE
         </button>
         <button onClick={() => this.setState({ gender: 'female' })}
-          className="auth-btn"
+          className="btn btn-primary"
           type="button"
+          style={{ flex: 1, width: 150, backgroundColor: '#F58C6C', borderWidth: 0}}
         >
           FEMALE
         </button>
@@ -84,14 +86,16 @@ class SignUp extends Component {
       return(
         <div>
         <button onClick={() => this.setState({ gender: 'male' })}
-          className="auth-btn"
+          className="btn btn-primary"
           type="button"
+          style={{ flex: 1, width: 150, backgroundColor: '#F58C6C', borderWidth: 0}}
         >
           MALE
         </button>
         <button onClick={() => this.setState({ gender: 'female' })}
-          className="auth-btn-focus"
+          className="btn btn-primary"
           type="button"
+          style={{ flex: 1, width: 150, backgroundColor: '#f9b6a2', borderWidth: 0  }}
         >
           FEMALE
         </button>
@@ -102,14 +106,16 @@ class SignUp extends Component {
       return(
         <div>
         <button onClick={() => this.setState({ gender: 'male' })}
-          className="auth-btn-focus"
+          className="btn btn-primary"
           type="button"
+          style={{ flex: 1, width: 150, backgroundColor: '#f9b6a2', borderWidth: 0 }}
         >
           MALE
         </button>
         <button onClick={() => this.setState({ gender: 'female' })}
-          className="auth-btn"
+          className="btn btn-primary"
           type="button"
+          style={{ flex: 1, width: 150, backgroundColor: '#F58C6C', borderWidth: 0}}
         >
         FEMALE
         </button>
@@ -132,11 +138,14 @@ class SignUp extends Component {
     <div className="auth-form" >
       <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
       <div className="auth-input">
-        <h2>Sign Up</h2>
+        <h1>Sign Up</h1>
+        <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
+
         <input
           className="form-control"
           type="text"
           placeholder="Name"
+          style={{ marginBottom: 5 }}
           value={this.props.fullname} //input verdi for fullname
           onChange={event => this.onFullnameChange(event.target.value)}
         />
@@ -144,6 +153,7 @@ class SignUp extends Component {
           className="form-control"
           type="text"
           placeholder="email"
+          style={{ marginBottom: 5 }}
           value={this.props.signupEmail} //input verdi for email
           onChange={event => this.onSignupEmailChange(event.target.value)}
         />
@@ -151,6 +161,7 @@ class SignUp extends Component {
           className="form-control"
           type="password"
           placeholder="password"
+          style={{ marginBottom: 5 }}
           value={this.props.signupPassword}
           onChange={event => this.onSignupPasswordChange(event.target.value)}
 
@@ -158,27 +169,28 @@ class SignUp extends Component {
         <input
           className="form-control"
           type="password"
-          placeholder="re-enter password"
+          placeholder="confirm password"
+          style={{ marginBottom: 5 }}
           value={this.props.confirmPassword}
           onChange={event => this.onConfirmPasswordChange(event.target.value)}
         />
-        <div className="gender">
-          {this.renderGenderButtons()}
-        </div>
-        <button onClick={this.onButtonPress.bind(this)}
-          className="btn btn-primary"
-          type="button"
-          style={{ borderRadius: 10, backgroundColor: '#F58C6C' }}
-        >
-          Sign Up
-        </button>
 
       </div>
+      <div className="gender">
+        {this.renderGenderButtons()}
+      </div>
+      <button onClick={this.onButtonPress.bind(this)}
+        className="btn btn-primary"
+        type="button"
+        style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, marginTop: 5 }}
+      >
+        Sign Up
+      </button>
       <button onClick={this.renderSignup.bind(this)}
         className="btn btn-primary"
-        style={{ borderRadius: 10, backgroundColor: '#95CAFE' }}
+        style={{ borderRadius: 5, backgroundColor: '#95CAFE', borderWidth: 0 }}
       >
-        Sign in
+        Already have an account? Sign in
       </button>
     </div>
     )

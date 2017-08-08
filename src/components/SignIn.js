@@ -22,8 +22,8 @@ class SignIn extends Component {
 
   alertOptions = {
       offset: 14,
-      position: 'top left',
-      theme: 'dark',
+      position: 'bottom left',
+      theme: 'ligth',
       time: 5000,
       transition: 'scale'
     }
@@ -50,18 +50,21 @@ class SignIn extends Component {
       <div className="auth-form" >
         <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
         <div className="auth-input">
-          <h2>Sign In</h2>
+          <h1>Sign In</h1>
+          <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
 
           <input
             className="form-control"
             type="text"
             placeholder="email"
+            style={{ marginBottom: 5 }}
             onChange={event => this.onEmailChange(event.target.value)}
           />
           <input
             className="form-control"
             type="password"
             placeholder="password"
+            style={{ marginBottom: 5 }}
             onChange={event => this.onPasswordChange(event.target.value)}
 
           />
@@ -69,15 +72,15 @@ class SignIn extends Component {
         </div>
         <button onClick={this.onButtonPress.bind(this)}
           className="btn btn-primary"
-          style={{ borderRadius: 10, backgroundColor: '#F58C6C' }}
+          style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0 }}
         >
           Sign in
         </button>
         <button onClick={this.renderSignup.bind(this)}
           className="btn btn-primary"
-          style={{ borderRadius: 10, backgroundColor: '#95CAFE' }}
+          style={{ borderRadius: 5, backgroundColor: '#95CAFE', borderWidth: 0 }}
         >
-          Sign in
+          Not Registered? Sign Up
         </button>
 
       </div>

@@ -13,16 +13,12 @@ class Settings extends Component {
 
   render () {
     return (
-      <div className="auth-form">
-        <div className="auth-input">
           <button onClick={this.onLogOutPress.bind(this)}
-            className="auth-btn"
-            style={{ borderRadius: 10, backgroundColor: '#F58C6C' }}
+            className="btn btn-primary"
+            style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0  }}
           >
             log out
           </button>
-        </div>
-      </div>
     )
   }
 }
