@@ -35,33 +35,44 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
   render() {
 
     return (
-      <div className="App">
+      <div>
+        <div className="App">
 
-        <div className="App-header">
-          <h2>QueueMe</h2>
+          <div style={{ height: 180, flexDirection: 'column' }}>
+          <div className="App-header">
+            <img src={require('./images/Header.png')} className="header-image" alt="logo" />
+            <button onClick={console.log('df')}
+              className="btn btn-primary"
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+            >
+              About us
+            </button>
+          </div>
+          <div className="list-header">
+            <h1>All available student assistants in this subject</h1>
+            <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
+          </div>
         </div>
 
-        <div className="list-main">
+          <div className="list-container">
 
           <StudAssList
             onStudassSelect={selectedStudass =>   this.onPress(selectedStudass)}
             studass={this.props.studAssList} />
 
 
-        </div>
-
-        <div className="under-Div">
-          <div className="info">
-            <div className="under-info">
-              <img src={require('./images/welcomeslide5.png')} className="info-image" alt="logo" />
-            </div>
-            <div className="under-info">
-              <small>Available on mobile</small>
-            </div>
           </div>
 
-
         </div>
+        <div className="under-Div">
+          <h1>ABOUT US</h1>
+          <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+          <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+          <div style={{ flexDirection: 'row', height: 100}}>
+            <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
+            <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
+          </div>
+          </div>
       </div>
     );
   }

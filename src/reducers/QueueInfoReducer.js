@@ -1,4 +1,4 @@
-import { INFO_RETIREVED, ADDED_TO_QUEUE, DELETE_QUEUE } from '../actions/types';
+import { INFO_RETIREVED, ADDED_TO_QUEUE, DELETE_QUEUE, DELETED_ME_FROM_QUEUE } from '../actions/types';
 
 
 const INITIAL_STATE = { subject: '', studass: '', available: '', room: '', studassLocation: '', count: '', myLocation: '' };
@@ -12,6 +12,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, myLocation: action.payload };
     case DELETE_QUEUE:
       return INITIAL_STATE;
+    case DELETED_ME_FROM_QUEUE:
+    return INITIAL_STATE;
     default:
       return state;
   }

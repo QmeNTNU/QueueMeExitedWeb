@@ -48,6 +48,7 @@ export const makeQueue = ({ myGender, available, room, ref }) => {
       dispatch({ type: QUEUE_CREATED }); //resets the input field
        //Actions.studassQueue({ type: 'reset' });//moved to necht scene
          browserHistory.push('/StudassQueue');
+
      });
   };
 };
