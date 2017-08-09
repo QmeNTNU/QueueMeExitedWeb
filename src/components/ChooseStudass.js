@@ -32,27 +32,6 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
   }
 
-renderscreen(){
-  if (!this.props.studAssList.length) {
-    return (
-      <div className="home-main">
-      <img
-        style={{ height: 200, width: 200 }}
-        src={require('./images/nostudass.png')}
-      />
-      <h2>No available student assistant...</h2>
-    </div>
-    );
-  }
-  return (
-      <div className="list-container" style={{ borderRadius: 5}}>
-        <StudAssList
-          onStudassSelect={selectedStudass =>   this.onPress(selectedStudass)}
-          studass={this.props.studAssList} />
-        </div>
-  );
-}
-
   render() {
 
     return (
@@ -75,15 +54,14 @@ renderscreen(){
           </div>
         </div>
 
+          <div className="list-container">
+
+          <StudAssList
+            onStudassSelect={selectedStudass =>   this.onPress(selectedStudass)}
+            studass={this.props.studAssList} />
 
 
-            {this.renderscreen()}
-
-
-
-        <div  className="low-text">
-          <h3>To manage subjects, download the QueueMe app</h3>
-        </div>
+          </div>
 
         </div>
         <div className="under-Div">

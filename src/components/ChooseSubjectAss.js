@@ -53,7 +53,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         </div>
       </div>
 
-      <div className="list-container" style={{ borderRadius: 5}}>
+        <div className="list-container">
 
           <SubjectAssList
             onSubjectSelect={selectedSubject =>   this.onPress(selectedSubject.emnekode)}
