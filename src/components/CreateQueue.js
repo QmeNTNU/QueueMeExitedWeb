@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import _ from 'lodash';
 import firebase from 'firebase';
 import { browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 import { connect } from 'react-redux'; //to get acces to the actioncreater
 import { availableChanged, roomChanged, makeQueue, alertNotify } from '../actions'; //all the actions in the actioncreator
@@ -160,7 +161,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
         <div style={{ height: 180, flexDirection: 'column' }}>
         <div className="App-header">
-          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
+          <Link to={'/Home'}><img src={require('./images/Header.png')} className="header-image" alt="logo" /></Link>
           <button onClick={console.log('df')}
             className="btn btn-primary"
             style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
