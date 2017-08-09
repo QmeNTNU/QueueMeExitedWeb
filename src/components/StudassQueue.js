@@ -44,7 +44,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
 onUnload(event) { // the method that will be used for both add and remove event
         console.log("hellooww")
-        event.returnValue = "If you refresh, you will be delete from this queue!";
+        event.returnValue = "If you refresh, you will be deleted from this queue!";
     }
     componentWillUnmount() {
            window.removeEventListener("beforeunload", this.onUnload);
@@ -177,6 +177,10 @@ renderScreen() {
       <h1>ABOUT US</h1>
       <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
       <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+      <div style={{ flexDirection: 'row', height: 100}}>
+        <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
+        <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
+      </div>
       </div>
   </div>
       );
@@ -214,10 +218,18 @@ renderScreen() {
 
 
         <div>
-          <button onClick={this.onQuitPress.bind(this)}>
+          <button onClick={this.onQuitPress.bind(this)}
+            className="btn btn-primary"
+            type="button"
+            style={{ borderRadius: 5, backgroundColor: '#95CAFE', borderWidth: 0, marginTop: 5 }}
+          >
             QUIT
           </button>
-          <button onClick={this.onNextPress.bind(this)}>
+          <button onClick={this.onNextPress.bind(this)}
+            className="btn btn-primary"
+            type="button"
+            style={{ borderRadius: 5, backgroundColor: '#2ecc71', borderWidth: 0, marginTop: 5, width: 150 }}
+          >
             NEXT
           </button>
         </div>
@@ -231,6 +243,10 @@ renderScreen() {
       <h1>ABOUT US</h1>
       <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
       <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+      <div style={{ flexDirection: 'row', height: 100}}>
+        <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
+        <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
+      </div>
       </div>
   </div>
       );

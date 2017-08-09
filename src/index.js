@@ -29,7 +29,7 @@ const store = createStore(reducer, {}, applyMiddleware(ReduxThunk));
 firebase.auth().onAuthStateChanged((user) => {
 if (user) {
   console.log('user has signed in or up');
-  browserHistory.push('/Home');
+  browserHistory.replace('/Home');
 
         //waits 2 seconds "kunstpause"
         //NEED TO STOP????????

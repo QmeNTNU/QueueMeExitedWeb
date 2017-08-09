@@ -67,6 +67,6 @@ return (dispatch) => {
 };
 
 const isDeleted = () => {
-  browserHistory.push('/InQueue');
+  browserHistory.replace('/Home');
 
 };
