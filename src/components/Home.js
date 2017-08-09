@@ -48,9 +48,13 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
         <div className="App-main">
           <div>
+            <div>
+              <img src={require('./images/Header.png')} style={{height: 120}} alt="logo" />
 
-            <h1 style={{ fontSize: 60}}> CHOOSE BETWEEN STUDENT OR STUDENT ASSISTENT </h1>
-            <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
+            </div>
+
+            <img src={require('./images/divider.png')} style={{width: 350}} alt="logo" />
+            <h1 style={{ fontSize: 20}}> CHOOSE BETWEEN STUDENT OR STUDENT ASSISTENT </h1>
             <div className="home-buttons">
               <div><Link to ={'/ChooseSubjectStud'} className="btn btn-primary" style={{ marginBottom: 5, backgroundColor: '#95CAFE', borderWidth: 1, borderColor: '#ffffff', width: 300 }}>Student</Link></div>
               <div><Link to ={'/ChooseSubjectAss'} className="btn btn-primary" style={{backgroundColor: '#95CAFE', borderWidth: 1, borderColor: '#ffffff', width: 300 }}>StudAss</Link></div>

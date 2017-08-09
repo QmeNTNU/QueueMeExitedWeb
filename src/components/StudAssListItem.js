@@ -7,7 +7,7 @@ const StudAssListItem = ({ studass, onStudassSelect }) => {
   const icon = studass.userGender === 'female' ? require('./images/choosegirlstud2.png') : require('./images/choosepersonstud2.png');
 
   return (
-    <Link to={'/QueueInfo'}  onClick={() => onStudassSelect(studass)} className="list-group-item" style={{ backgroundColor: '#2c3e50', borderWidth: 0, marginBottom: 5 }}>
+    <Link to={'/QueueInfo'}  onClick={() => onStudassSelect(studass)} style={{ textDecoration: 'none', alignItems: 'center', justifyContent: 'center', backgroundColor: '#2c3e50', borderWidth: 5, borderColor: '#ffffff' ,marginBottom: 5 }}>
       <div className="video-list media">
         <div className="list-main">
           <div className="list-image">
