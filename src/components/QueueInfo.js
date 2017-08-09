@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import '../App.css';
+import { Link } from 'react-router';
 
 import { setInfo, getCount, addToQueue } from '../actions';
 
@@ -153,7 +154,7 @@ renderScreen() {
 
         <div style={{ height: 180, flexDirection: 'column' }}>
         <div className="App-header">
-          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
+          <Link to={'/Home'}><img src={require('./images/Header.png')} className="header-image" alt="logo" /></Link>
           <button onClick={console.log('df')}
             className="btn btn-primary"
             style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
