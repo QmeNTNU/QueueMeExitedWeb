@@ -78,15 +78,13 @@ renderScreen() {
       <div className="App">
 
         <div className="App-header">
+          <div className="header-image">
           <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+          </div>
+
 
           <div className="header-buttons">
-            <button onClick={console.log('df')}
-              className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
-            >
-              About us
-            </button>
+            
           </div>
         </div>
 

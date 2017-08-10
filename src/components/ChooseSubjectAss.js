@@ -39,20 +39,17 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
       <div className="App">
 
         <div className="App-header">
+          <div className="header-image">
           <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+          </div>
+
 
           <div className="header-buttons">
-            <button onClick={console.log('df')}
-              className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
-            >
-              About us
-            </button>
             <Settings />
           </div>
         </div>
         <div className="list-header">
-          <h1>your available studass subjects</h1>
+          <h1 className="header-textphoto" >your available studass subjects</h1>
           <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
         </div>
 
@@ -64,7 +61,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
     </div>
     <div  className="low-text">
-      <h3>To manage subjects, download the QueueMe app</h3>
+      <h3 className="header-textphoto" >To manage subjects, download the QueueMe app</h3>
     </div>
 
     </div>

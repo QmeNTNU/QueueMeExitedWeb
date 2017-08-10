@@ -37,13 +37,9 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           <div className="header-image">
           <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
           </div>
+
+
           <div className="header-buttons">
-            <button onClick={console.log('df')}
-              className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
-            >
-              About us
-            </button>
             <Settings />
           </div>
         </div>
@@ -51,7 +47,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         <div className="App-main">
           <div style={{ textAlign: 'center'}}>
 
-            <h1> CHOOSE BETWEEN STUDENT OR STUDENT ASSISTENT </h1>
+              <h1 className="header-textphoto" > CHOOSE BETWEEN STUDENT OR STUDENT ASSISTENT </h1>
 
             <div className="home-info">
               <div className="home-buttons"></div>

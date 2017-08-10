@@ -154,51 +154,48 @@ renderScreen() {
       <div className="App">
 
         <div className="App-header">
+          <div className="header-image">
           <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+          </div>
+
 
           <div className="header-buttons">
-            <button onClick={console.log('df')}
-              className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
-            >
-              About us
-            </button>
             <Settings />
           </div>
         </div>
         <div className="list-header">
-          <h1>you are about to enter the folowing line:</h1>
+          <h1 className="header-textphoto" >You are about to enter the following line: </h1>
           <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
         </div>
 
         <div className="queue-info-main">
 
           <div style={{backgroundColor: '#95CAFE', borderRadius: 5, flex: 1}}>
-                <div style={{borderRadius: 5, backgroundColor: '#2c3e50', flex: 1, paddingLeft: 60, paddingRight: 60}}>
+                <div className="queueinfo" style={{borderRadius: 5}}>
                         <div className="info-header" style={{borderRadius: 5}} >
-                          <h2>{this.props.studass}</h2>
+                          <h2 className="inqueue-header" >{this.props.studass}</h2>
                         </div>
 
                         <div className="info-container">
-                          <h2 style={{ color: '#F58C6C' }}>People in line: </h2>
-                          <h2>{this.props.studasscount}</h2>
+                          <h2 className="inqueue-text"  style={{ color: '#F58C6C' }}>People in line: </h2>
+                          <h2 className="inqueue-text" > {this.props.studasscount}</h2>
                         </div>
 
 
                         <div className="info-container" >
-                          <h2 style={{ color: '#F58C6C' }}>Subject: </h2>
-                          <h2>{this.props.subject}</h2>
+                          <h2 className="inqueue-text"  style={{ color: '#F58C6C' }}>Subject: </h2>
+                          <h2 className="inqueue-text" > {this.props.subject}</h2>
                         </div>
 
 
                         <div className="info-container" >
-                          <h2 style={{ color: '#F58C6C' }}>Available until: </h2>
-                          <h2>{this.props.available}</h2>
+                          <h2 className="inqueue-text"  style={{ color: '#F58C6C' }}>Available until: </h2>
+                          <h2 className="inqueue-text" > {this.props.available}</h2>
                         </div>
 
                         <div className="info-container" style={{borderRadius: 5}}>
-                          <h2 style={{ color: '#F58C6C' }}>Room: </h2>
-                          <h2>{this.props.room}</h2>
+                          <h2 className="inqueue-text"  style={{ color: '#F58C6C' }}>Room: </h2>
+                          <h2 className="inqueue-text" > {this.props.room}</h2>
                         </div>
                     </div>
 
