@@ -51,8 +51,8 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           </div>
         </div>
         <div className="list-header">
-          <h1>your available student subjects</h1>
-          <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
+          <h1 style={{height: '50%'}}>your available student subjects</h1>
+          <img src={require('./images/divider.png')} style={{height: '50%'}} alt="logo" />
         </div>
 
 

@@ -38,6 +38,18 @@ html, body, #reactapp, .App {
   font-family: 'bebasNeue';
 
 }
+.header-image{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width:20%;
+  color: white;
+  font-size: large;
+  font-family: 'bebasNeue';
+}
+
 .header-buttons{
     display: flex;
     flex-direction: row;

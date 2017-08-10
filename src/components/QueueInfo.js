@@ -173,8 +173,8 @@ renderScreen() {
 
         <div className="queue-info-main">
 
-          <div style={{backgroundColor: '#95CAFE', width: '30%', borderRadius: 5}}>
-                <div style={{borderRadius: 5, backgroundColor: '#2c3e50'}}>
+          <div style={{backgroundColor: '#95CAFE', borderRadius: 5, flex: 1}}>
+                <div style={{borderRadius: 5, backgroundColor: '#2c3e50', flex: 1, paddingLeft: 60, paddingRight: 60}}>
                         <div className="info-header" style={{borderRadius: 5}} >
                           <h2>{this.props.studass}</h2>
                         </div>
