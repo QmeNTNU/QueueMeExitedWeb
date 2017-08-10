@@ -3,6 +3,7 @@ import _ from 'lodash';
 import firebase from 'firebase';
 import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
+import Settings from './Settings';
 
 import { connect } from 'react-redux'; //to get acces to the actioncreater
 import { availableChanged, roomChanged, makeQueue, alertNotify } from '../actions'; //all the actions in the actioncreator
@@ -159,21 +160,24 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
       <div>
       <div className="App">
 
-        <div style={{ height: 180, flexDirection: 'column' }}>
         <div className="App-header">
-          <Link to={'/Home'}><img src={require('./images/Header.png')} className="header-image" alt="logo" /></Link>
-          <button onClick={console.log('df')}
-            className="btn btn-primary"
-            style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
-          >
-            About us
-          </button>
+          <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+
+          <div className="header-buttons">
+            <button onClick={console.log('df')}
+              className="btn btn-primary"
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
+            >
+              About us
+            </button>
+            <Settings />
+          </div>
         </div>
         <div className="list-header">
           <h1>you're about to start a queue in {this.props.studassSubject}</h1>
-
+          <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
         </div>
-      </div>
+
 
         <div className="list-container">
           <div className="auth-form" >
@@ -181,7 +185,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
             <div className="auth-input">
 
               {this.renderImage()}
-                <div className="createQueue-info" >
+                <div className="createQueue-info" style={{ borderRadius: 5}}>
               <input
                 className="form-control"
                 type="text"
@@ -214,7 +218,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
       <div className="under-Div">
         <h1>ABOUT US</h1>
         <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
-        <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+        <small style={{ width: '50%'}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
         <div style={{ flexDirection: 'row', height: 100}}>
           <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
           <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />

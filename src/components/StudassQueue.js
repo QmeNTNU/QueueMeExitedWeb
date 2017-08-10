@@ -85,7 +85,7 @@ renderImage() {
   const icon = this.props.firstGender === 'female' ? require('./images/studassqueuewoman3.png') : require('./images/studassqueue3.png');
   return (
     <img
-      style={{ height: 200, width: 200 }}
+      style={{ height: 250, width: 250 }}
       src={icon}
     />
   );
@@ -97,7 +97,7 @@ renderEmptyImage() {
   /* eslint-disable global-require */
   return (
     <img
-    style={{ height: 200, width: 200 }}
+    style={{ height: 300, width: 300 }}
     src={require('./images/emptyLine2.png')}
     />
   );
@@ -126,15 +126,15 @@ renderScreen() {
       <div className="App">
 
         <div className="App-header">
-          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
-          <div>
+          <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+
+          <div className="header-buttons">
             <button onClick={console.log('df')}
               className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
             >
               About us
             </button>
-
           </div>
         </div>
 
@@ -176,7 +176,7 @@ renderScreen() {
     <div className="under-Div">
       <h1>ABOUT US</h1>
       <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
-      <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+      <small style={{ width: '50%'}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
       <div style={{ flexDirection: 'row', height: 100}}>
         <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
         <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
@@ -191,15 +191,15 @@ renderScreen() {
       <div className="App">
 
         <div className="App-header">
-          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
-          <div>
+          <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+
+          <div className="header-buttons">
             <button onClick={console.log('df')}
               className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
             >
               About us
             </button>
-
           </div>
         </div>
 
@@ -242,7 +242,7 @@ renderScreen() {
     <div className="under-Div">
       <h1>ABOUT US</h1>
       <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
-      <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+      <small style={{ width: '50%'}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
       <div style={{ flexDirection: 'row', height: 100}}>
         <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
         <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />

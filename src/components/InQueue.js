@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import '../App.css';
 
 import { getCount, deleteMeFromQueue, findMyPlaceInLine } from '../actions';
+import Settings from './Settings';
 
 class InQueue extends Component {
 
@@ -59,7 +60,7 @@ renderImage() {
   const icon = this.props.myGender === 'female' ? require('./images/inqueuewoman3.png') : require('./images/inqueue3.png');
   return (
     <img
-      style={{height: 300, width: 300 }}
+      style={{width: '50%'}}
       src={icon}
     />
   );
@@ -77,27 +78,28 @@ renderScreen() {
       <div className="App">
 
         <div className="App-header">
-          <img src={require('./images/Header.png')} className="header-image" alt="logo" />
-          <div>
+          <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+
+          <div className="header-buttons">
             <button onClick={console.log('df')}
               className="btn btn-primary"
-              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
             >
               About us
             </button>
-
           </div>
         </div>
 
         <div className="queue-info-main">
-
+            <div className="queue-info-main" style={{ padding: 0}}>
             {this.renderImage()}
-
+            </div>
             <div className="inQueue-info" >
               <h3>you are nr</h3>
               <img src={require('./images/divider.png')} style={{width: 100}} alt="logo" />
               <h3> {this.props.place}/{this.props.studasscount}</h3>
             </div>
+
 
             <button onClick={this.onQuitPress.bind(this)}
               className="btn btn-primary"
@@ -114,7 +116,7 @@ renderScreen() {
       <div className="under-Div">
         <h1>ABOUT US</h1>
         <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
-        <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+        <small style={{ width: '50%'}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
         <div style={{ flexDirection: 'row', height: 100}}>
           <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
           <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />

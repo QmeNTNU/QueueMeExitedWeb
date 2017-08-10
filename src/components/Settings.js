@@ -15,7 +15,7 @@ class Settings extends Component {
     return (
           <button onClick={this.onLogOutPress.bind(this)}
             className="btn btn-primary"
-            style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0  }}
+            style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, height: '100%', width: '100%' }}
           >
             log out
           </button>
