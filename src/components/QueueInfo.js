@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import '../App.css';
 import { Link } from 'react-router';
+import Settings from './Settings';
 
 import { setInfo, getCount, addToQueue } from '../actions';
 
@@ -152,30 +153,33 @@ renderScreen() {
       <div>
       <div className="App">
 
-        <div style={{ height: 180, flexDirection: 'column' }}>
         <div className="App-header">
-          <Link to={'/Home'}><img src={require('./images/Header.png')} className="header-image" alt="logo" /></Link>
-          <button onClick={console.log('df')}
-            className="btn btn-primary"
-            style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
-          >
-            About us
-          </button>
+          <img src={require('./images/Header.png')} style={{height: '60%'}} alt="logo" />
+
+          <div className="header-buttons">
+            <button onClick={console.log('df')}
+              className="btn btn-primary"
+              style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0, height: '100%', width: '100%' }}
+            >
+              About us
+            </button>
+            <Settings />
+          </div>
         </div>
         <div className="list-header">
-          <h1>you are about to enter the following line:</h1>
+          <h1>you are about to enter the folowing line:</h1>
           <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
         </div>
-      </div>
 
         <div className="queue-info-main">
 
-
-                        <div className="info-header" >
+          <div style={{backgroundColor: '#95CAFE', width: '30%', borderRadius: 5}}>
+                <div style={{borderRadius: 5, backgroundColor: '#2c3e50'}}>
+                        <div className="info-header" style={{borderRadius: 5}} >
                           <h2>{this.props.studass}</h2>
                         </div>
 
-                        <div className="info-container" >
+                        <div className="info-container">
                           <h2 style={{ color: '#F58C6C' }}>People in line: </h2>
                           <h2>{this.props.studasscount}</h2>
                         </div>
@@ -192,35 +196,36 @@ renderScreen() {
                           <h2>{this.props.available}</h2>
                         </div>
 
-                        <div className="info-container" >
+                        <div className="info-container" style={{borderRadius: 5}}>
                           <h2 style={{ color: '#F58C6C' }}>Room: </h2>
                           <h2>{this.props.room}</h2>
                         </div>
+                    </div>
 
 
-
-                  <div style={{ height: 60, marginTop: 5, marginLeft: 40, marginRight: 40 }}>
+                  <div style={{ height: 60, marginTop: 5, width: '100%' }}>
                     <button onClick={this.onButtonBluePress.bind(this)}
                       className="btn btn-primary"
-                      style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, width: 300, height: 60 }}
+                      style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, width: '100%', height: 60 }}
                     >
                       Add me to queue
                     </button>
                   </div>
-
+              </div>
+                <div className="queue-info-main"></div>
             </div>
 
 
           </div>
           <div className="under-Div">
-              <h1>ABOUT US</h1>
-              <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
-              <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
-              <div style={{ flexDirection: 'row', height: 100}}>
-                <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
-                <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
-              </div>
-              </div>
+            <h1>ABOUT US</h1>
+            <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+            <small style={{ width: '50%'}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+            <div style={{ flexDirection: 'row', height: 100}}>
+              <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
+              <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
+            </div>
+            </div>
         </div>
       );
 }

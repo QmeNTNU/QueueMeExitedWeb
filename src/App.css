@@ -29,7 +29,7 @@ html, body, #reactapp, .App {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 15%;
   background-color: #2c3e50;
   padding-left: 40px;
   padding-right: 40px;
@@ -38,13 +38,24 @@ html, body, #reactapp, .App {
   font-family: 'bebasNeue';
 
 }
+.header-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width:20%;
+    color: white;
+    font-size: large;
+    font-family: 'bebasNeue';
+}
 .list-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100px;
+  height: 15%;
   background-color: #95CAFE;
   color: white;
   font-size: large;
@@ -53,7 +64,7 @@ html, body, #reactapp, .App {
 }
 .App-main{
   display: flex;
-  flex-grow: 10;
+  flex-grow: 11;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
@@ -118,12 +129,19 @@ html, body, #reactapp, .App {
   color: white;
    font-family: 'bebasNeue';
 }
-
+.home-info{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .home-buttons{
   display: flex;
   flex-grow: 1;
+
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 .home-image {
@@ -167,10 +185,10 @@ html, body, #reactapp, .App {
 
 .queue-info-main{
   display: flex;
-  flex-grow: 10;
+  flex-grow: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   background-color: #95CAFE;
   padding: 20px;
   color: white;
@@ -180,19 +198,19 @@ html, body, #reactapp, .App {
 .info-container {
   display: flex;
   flex-grow: 1;
-  width: 300px;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   background-color: #2c3e50;
-  color: white;
   padding-left: 20px;
+  color: white;
   font-family: 'bebasNeue';
 }
 .info-header{
   display: flex;
   flex-grow: 1;
-  width: 300px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
