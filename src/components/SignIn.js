@@ -51,7 +51,7 @@ class SignIn extends Component {
         <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
         <div className="auth-input">
           <h1>Sign In</h1>
-          <img src={require('./images/divider.png')} className="auth-divider " alt="logo" />
+          <img src={require('./images/divider.png')} style={{width: 300}} alt="logo" />
 
           <input
             className="form-control"

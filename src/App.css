@@ -270,6 +270,10 @@ html, body, #reactapp, .App {
   font-family: 'bebasNeue';
 }
 
+.info-scale{
+  width: 50%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -321,5 +325,8 @@ html, body, #reactapp, .App {
   }
   .inqueue-text{
       font-size: 20px;
+  }
+  .info-scale{
+    width: 70%;
   }
 }

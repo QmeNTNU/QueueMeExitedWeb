@@ -23,13 +23,14 @@ renderSignInOrSignOut() {
       <div className="App">
 
         <div className="App-header">
-          <img src={require('./components/images/Header.png')} className="header-image" alt="logo" />
-          <button onClick={console.log('df')}
-            className="btn btn-primary"
-            style={{ borderRadius: 5, backgroundColor: '#2c3e50', borderWidth: 0 }}
-          >
-            About us
-          </button>
+          <div className="header-image">
+          <img src={require('./components/images/Header.png')} style={{height: '60%'}} alt="logo" />
+          </div>
+
+
+          <div className="header-buttons">
+
+          </div>
         </div>
 
         <div className="App-main">
@@ -43,7 +44,7 @@ renderSignInOrSignOut() {
       <div className="under-Div">
         <h1>ABOUT US</h1>
         <img src={require('./components/images/dividerdark.png')} className="info-image" alt="logo" />
-        <small style={{width: 400}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+        <small className="info-scale">QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
         <div style={{ flexDirection: 'row', height: 100}}>
           <img src={require('./components/images/appstore.png')} className="info-image" alt="logo" />
           <img src={require('./components/images/googleplay.png')} className="info-image" alt="logo" />

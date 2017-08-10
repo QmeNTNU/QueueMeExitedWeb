@@ -68,7 +68,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
       <div className="under-Div">
         <h1>ABOUT US</h1>
         <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
-        <small style={{ width: '50%'}}>QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
+        <small className="info-scale">QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
         <div style={{ flexDirection: 'row', height: 100}}>
           <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
           <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
