@@ -273,6 +273,10 @@ html, body, #reactapp, .App {
 .info-scale{
   width: 50%;
 }
+.create-image{
+  height: 250px;
+  width: 250px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -328,5 +332,9 @@ html, body, #reactapp, .App {
   }
   .info-scale{
     width: 70%;
+  }
+  .create-image{
+    height: 200px;
+    width: 200px;
   }
 }

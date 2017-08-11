@@ -60,7 +60,7 @@ renderImage() {
   const icon = this.props.myGender === 'female' ? require('./images/inqueuewoman3.png') : require('./images/inqueue3.png');
   return (
     <img
-      style={{width: '50%'}}
+      style={{ height: 250, width: 250 }}
       src={icon}
     />
   );
@@ -89,10 +89,10 @@ renderScreen() {
         </div>
 
         <div className="queue-info-main">
-            <div className="queue-info-main" style={{ padding: 0}}>
+
             {this.renderImage()}
-            </div>
-            <div className="inQueue-info" >
+
+            <div className="inQueue-info" style={{ borderRadius: 5}} >
               <h3>you are nr</h3>
               <img src={require('./images/divider.png')} style={{width: 100}} alt="logo" />
               <h3> {this.props.place}/{this.props.studasscount}</h3>
