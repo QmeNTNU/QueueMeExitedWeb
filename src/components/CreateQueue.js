@@ -112,7 +112,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
     /* eslint-disable global-require */
     return (
       <img
-        style={{ height: 200, width: 200 }}
+        className="create-image"
         src={require('./images/alarm3.png')}
       />
     );
@@ -178,9 +178,9 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
 
         <div className="list-container">
-          <div className="auth-form" >
+          <div className="create-form" >
             <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-            <div className="auth-input">
+            <div className="create-input">
 
               {this.renderImage()}
                 <div className="createQueue-info" style={{ borderRadius: 5}}>
@@ -210,6 +210,8 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
 
           </div>
+          <div className="create-form" ></div>
+
         </div>
 
       </div>
