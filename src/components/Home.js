@@ -55,7 +55,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
               <div className="home-buttons">
                 <img src={require('./images/divider.png')} style={{ width: '100%' }} alt="logo" />
                 <div><Link to ={'/ChooseSubjectStud'} className="btn btn-primary" style={{ marginBottom: 5, backgroundColor: '#95CAFE', borderWidth: 1, borderColor: '#ffffff', width: '100%' }}>Student</Link></div>
-                <div><Link to ={'/ChooseSubjectAss'} className="btn btn-primary" style={{backgroundColor: '#95CAFE', borderWidth: 1, borderColor: '#ffffff', width: '100%' }}>StudAss</Link></div>
+                <div><Link to ={'/StudassLockUp'} className="btn btn-primary" style={{backgroundColor: '#95CAFE', borderWidth: 1, borderColor: '#ffffff', width: '100%' }}>StudAss</Link></div>
               </div>
               <div className="home-buttons"></div>
 

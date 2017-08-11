@@ -13,7 +13,7 @@ import StudentSubjectReducer from './StudentSubjectReducer';
 import QueueInfoReducer from './QueueInfoReducer';
 import StudAssListReducer from './StudAssListReducer';
 import InQueueReducer from './InQueueReducer';
-
+import StudassLockUpReducer from './StudassLockUpReducer';
 
 
 export default combineReducers({
@@ -31,7 +31,7 @@ export default combineReducers({
   queueInfo: QueueInfoReducer,
   studAssList: StudAssListReducer,
   inQueue: InQueueReducer,
-
+  lock: StudassLockUpReducer,
 
 
 });
