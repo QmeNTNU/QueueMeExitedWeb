@@ -16,7 +16,7 @@ export const codeChanged = (text) => {
 export const fetchCode = () => {
   const userUID = firebase.auth().currentUser.uid;
   console.log('USERUID', userUID);
-  const { ref } = firebase.database().ref(`users/${userUID}/code`);
+  const { ref } = firebase.database().ref(`users/${userUID}/code/code`);
   return (dispatch) => {
     //should change to once?
         ref.on('value', snapshot => {

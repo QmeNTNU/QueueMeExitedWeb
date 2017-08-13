@@ -65,8 +65,11 @@ class StudassLockUp extends Component {
           <div className="auth-form" >
             <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
             <div className="auth-input">
+
+              <img src={require('./images/code.png')} style={{width: 200}} alt="logo" />
               <h1>Enter code</h1>
-              <img src={require('./images/divider.png')} style={{width: 300}} alt="logo" />
+              <img src={require('./images/divider.png')} style={{width: 200}} alt="logo" />
+
               <input
                 className="form-control"
                 type="password"
@@ -100,7 +103,7 @@ class StudassLockUp extends Component {
     </div>
     <div className="under-Div">
       <h1>ABOUT US</h1>
-      <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+      <img src={require('./images/divider.png')} className="info-image" alt="logo" />
       <small className="info-scale">QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
       <div style={{ flexDirection: 'row', height: 100}}>
         <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
