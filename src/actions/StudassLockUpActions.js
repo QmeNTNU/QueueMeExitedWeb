@@ -20,7 +20,7 @@ export const fetchCode = () => {
   return (dispatch) => {
     //should change to once?
         ref.on('value', snapshot => {
-          dispatch({ type: FETCH_CODE, payload: snapshot.val().toString() });
+          dispatch({ type: FETCH_CODE, payload: snapshot.val() });
       });
   };
 };

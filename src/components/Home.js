@@ -21,6 +21,8 @@ class Home extends Component {
       this.props.fetchCode();
       const user = firebase.auth().currentUser.displayName;
       console.log('FIREBASE USER NAME', user);
+
+
     } else {
 console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
@@ -36,7 +38,11 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
   onStudassPress(){
     if (this.props.retrievedCode !== ''){
       browserHistory.push('/ChooseSubjectAss');
-
+      var OneSignal = window.OneSignal || [];
+      console.log('ONESIGNAL HOME', OneSignal);
+      OneSignal.push(function() {
+  OneSignal.registerForPushNotifications();
+});
     }else {
       browserHistory.push('/StudassLockUp');
 
@@ -46,7 +52,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
   }
 
   render() {
-    console.log('CODE', this.props.retrievedCode);
+    console.log('RETRIEVEDCODE', this.props.retrievedCode);
 
     return (
       <div>

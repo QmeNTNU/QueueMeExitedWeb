@@ -17,6 +17,10 @@ class ChooseSubjectStud extends Component {
       console.log('DIDMOUNT FIREBASE USER', firebase.auth().currentUser);
 
       this.props.favoriteStudentSubjectListFetch();
+
+
+
+
     } else {
 console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
