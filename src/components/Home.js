@@ -37,13 +37,21 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
   onStudassPress(){
     if (this.props.retrievedCode !== ''){
-      browserHistory.push('/ChooseSubjectAss');
       var OneSignal = window.OneSignal || [];
       console.log('ONESIGNAL HOME', OneSignal);
       OneSignal.push(function() {
   OneSignal.registerForPushNotifications();
+
 });
+      browserHistory.push('/ChooseSubjectAss');
+
     }else {
+      var OneSignal = window.OneSignal || [];
+      console.log('ONESIGNAL HOME', OneSignal);
+      OneSignal.push(function() {
+  OneSignal.registerForPushNotifications();
+
+});
       browserHistory.push('/StudassLockUp');
 
     }

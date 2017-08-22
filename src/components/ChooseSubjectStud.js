@@ -20,7 +20,7 @@ class ChooseSubjectStud extends Component {
 
 
 
-
+      
     } else {
 console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
