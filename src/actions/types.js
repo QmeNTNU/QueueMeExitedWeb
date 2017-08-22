@@ -85,3 +85,6 @@ export const FIRST_TIME = 'FIRST_TIME';
 ///WEB//
 export const ALERT_MESSAGE = 'ALERT_MESSAGE';
 export const SET_RENDER_AUTH = 'SET_RENDER_AUTH';
+export const CODE_APPROVED = 'CODE_APPROVED';
+export const CODE_CHANGED = 'CODE_CHANGED';
+export const FETCH_CODE = 'FETCH_CODE';

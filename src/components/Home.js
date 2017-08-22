@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { getMyGender } from '../actions';
+import { getMyGender, fetchCode } from '../actions';
+import { browserHistory } from 'react-router';
 
 
 import '../App.css';
@@ -17,8 +18,11 @@ class Home extends Component {
     if (user) {
       //checks if it should display welcomeslides
       this.props.getMyGender();
+      this.props.fetchCode();
       const user = firebase.auth().currentUser.displayName;
       console.log('FIREBASE USER NAME', user);
+
+
     } else {
 console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
@@ -26,8 +30,37 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
   }
 
+  onStudentPress() {
+    browserHistory.push('/ChooseSubjectStud');
+
+  }
+
+  onStudassPress(){
+    if (this.props.retrievedCode !== ''){
+      var OneSignal = window.OneSignal || [];
+      console.log('ONESIGNAL HOME', OneSignal);
+      OneSignal.push(function() {
+  OneSignal.registerForPushNotifications();
+
+});
+      browserHistory.push('/ChooseSubjectAss');
+
+    }else {
+      var OneSignal = window.OneSignal || [];
+      console.log('ONESIGNAL HOME', OneSignal);
+      OneSignal.push(function() {
+  OneSignal.registerForPushNotifications();
+
+});
+      browserHistory.push('/StudassLockUp');
+
+    }
+
+
+  }
+
   render() {
-    console.log('FIREBASE USER', firebase.auth().currentUser);
+    console.log('RETRIEVEDCODE', this.props.retrievedCode);
 
     return (
       <div>
@@ -47,16 +80,35 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         <div className="App-main">
           <div style={{ textAlign: 'center'}}>
 
-              <h1> CHOOSE BETWEEN STUDENT OR STUDENT ASSISTENT </h1>
+
 
             <div className="home-info">
               <div className="home-buttons"></div>
 
+
+
+
               <div className="home-buttons">
-                <img src={require('./images/divider.png')} style={{ width: '100%' }} alt="logo" />
-                <div><Link to ={'/ChooseSubjectStud'} className="btn btn-primary" style={{ marginBottom: 5, backgroundColor: '#95CAFE', borderWidth: 1, borderColor: '#ffffff', width: '100%' }}>Student</Link></div>
-                <div><Link to ={'/ChooseSubjectAss'} className="btn btn-primary" style={{backgroundColor: '#95CAFE', borderWidth: 1, borderColor: '#ffffff', width: '100%' }}>StudAss</Link></div>
+                <img src={require('./images/Header.png')} style={{ width: '100%', alignSelf: 'center' }} alt="logo" />
+                <div>
+                  <h1 className="header-textphoto" style={{ width: '100%'}}>Choose between student or student assistant</h1>
+                  <div style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <button onClick={this.onStudentPress.bind(this)}
+                      className="btn btn-primary"
+                      style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, width: 120, marginRight: 2 }}
+                    >
+                      Student
+                    </button>
+                    <button onClick={this.onStudassPress.bind(this)}
+                      className="btn btn-primary"
+                      style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, width: 120, marginLeft: 2 }}
+                    >
+                      Student Assistant
+                    </button>
+                  </div>
+                </div>
               </div>
+
               <div className="home-buttons"></div>
 
           </div>
@@ -68,7 +120,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
       </div>
       <div className="under-Div">
         <h1>ABOUT US</h1>
-        <img src={require('./images/dividerdark.png')} className="info-image" alt="logo" />
+        <img src={require('./images/divider.png')} className="info-image" alt="logo" />
         <small className="info-scale">QueueMe is made possible by the Exited project, and is  created to streamline the time-consuming queue system at NTNU. QueueMe is first and foremost created as a mobile app, and we therefore recomend using the mobile platform as the user experience is better. You can download the app on The App Store og Google Play</small>
         <div style={{ flexDirection: 'row', height: 100}}>
           <img src={require('./images/appstore.png')} className="info-image" alt="logo" />
@@ -79,5 +131,13 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
     );
   }
 }
+const mapStateToProps = state => {
 
-export default connect(null, { getMyGender })(Home);
+  const { retrievedCode } = state.lock;
+
+
+  return { retrievedCode };
+};
+
+
+export default connect(mapStateToProps, { getMyGender, fetchCode })(Home);

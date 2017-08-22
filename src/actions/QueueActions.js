@@ -20,6 +20,7 @@ export const firstInLine = ({ ref }) => {
       empty = true;
       return true;
     }
+
     snapshot.forEach(childSnapshot => {
       console.log('emptyboolean', empty);
 
@@ -27,12 +28,80 @@ export const firstInLine = ({ ref }) => {
       dispatch({ type: FIRST_CHANGED, payload: childSnapshot.val().fullname });
       dispatch({ type: FIRST_KEY, payload: childSnapshot.key });
       dispatch({ type: FIRST_GENDER, payload: childSnapshot.val().userGender });
+      const playerId = childSnapshot.val().id;
+      const firstBoolean = childSnapshot.val().firstBoolean;
+      const data = {};
 
+      /*if (playerId === null) {
+        playerId = 'edfc360f-75b6-43db-a0c3-6dd3fd866947';
+      }*/
+      console.log(playerId, 'hei tjolla hopp');
+
+      if (typeof playerId !== 'undefined') {
+        if (typeof firstBoolean === 'undefined') {
+      const contents = {
+      'en': 'You are first in line!'
+    };
+
+      //OneSignal.postNotification(contents, data, playerId);
+      var OneSignal = window.OneSignal || [];
+      console.log('ONESIGNAL HOME', OneSignal);
+
+      OneSignal.push(function() {
+        // Occurs when the user's subscription changes to a new value.
+        var sendNotification = function(data) {
+var headers = {
+"Content-Type": "application/json; charset=utf-8",
+"Authorization": "Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj"
+};
+
+var options = {
+host: "onesignal.com",
+port: 443,
+path: "/api/v1/notifications",
+method: "POST",
+headers: headers
+};
+
+var https = require('https');
+var req = https.request(options, function(res) {
+res.on('data', function(data) {
+  console.log("Response:");
+  console.log(JSON.parse(data));
+});
+});
+
+req.on('error', function(e) {
+console.log("ERROR:");
+console.log(e);
+});
+
+req.write(JSON.stringify(data));
+req.end();
+};
+
+var message = {
+app_id: "0ae12c5d-b2f9-483a-acbf-dfcf4cf0ef25",
+contents: {"en": "You are first in line!"},
+include_player_ids: [playerId]
+};
+
+sendNotification(message);
+      });
+
+      ref.child(childSnapshot.key).child('firstBoolean').set('true');
+    }
+  }
+    //send notifikasjon
+      // const contents = 'You are first in line';
+      // OneSignal.postNotification(contents, data, playerId);
+    ////
       return true;
     });
   });
   };
 };
+
 
 //once run it will automaticly update itself
 export const fetchQueue = ({ ref }) => {

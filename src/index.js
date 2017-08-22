@@ -22,6 +22,7 @@ import CreateQueue from './components/CreateQueue';
 import StudassQueue from './components/StudassQueue';
 import QueueInfo from './components/QueueInfo';
 import InQueue from './components/InQueue';
+import StudassLockUp from './components/StudassLockUp';
 
 
 const store = createStore(reducer, {}, applyMiddleware(ReduxThunk));
@@ -61,6 +62,7 @@ ReactDOM.render(
     <Route path="/ChooseStudass" component={ChooseStudass} />
     <Route path="/QueueInfo" component={QueueInfo} />
     <Route path="/InQueue" component={InQueue} />
+    <Route path="/StudassLockUp" component={StudassLockUp} />
 
 
   </Router>

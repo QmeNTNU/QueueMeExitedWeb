@@ -12,3 +12,4 @@ export * from './StudentSubjectActions';
 export * from './QueueInfoActions';
 export * from './StudAssListActions';
 export * from './InQueueActions';
+export * from './StudassLockUpActions';
