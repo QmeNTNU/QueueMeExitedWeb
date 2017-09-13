@@ -36,7 +36,7 @@ return (dispatch) => {
   let bool = false;
     ref.on('value', snapshot => {
   // The callback function should be called for every update in database
-  console.log('findMyPlaceInLine', snapshot.val() === null);
+  //console.log('findMyPlaceInLine', snapshot.val() === null);
   //if the queue is empty ( in case studass deletes it)
   if (snapshot.val() === null) {
     ref.off();
@@ -45,9 +45,9 @@ return (dispatch) => {
   }
   snapshot.forEach(childSnapshot => {
     count += 1;
-    console.log('minUID', userUID);
-    console.log(childSnapshot.val());
-    console.log(count);
+    //console.log('minUID', userUID);
+    //console.log(childSnapshot.val());
+    //console.log(count);
   if (userUID === childSnapshot.val().userUID) {
     dispatch({ type: FOUND_MY_PLACE, payload: count });
     count = 0;

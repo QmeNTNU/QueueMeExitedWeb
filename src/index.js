@@ -29,14 +29,14 @@ const store = createStore(reducer, {}, applyMiddleware(ReduxThunk));
 
 firebase.auth().onAuthStateChanged((user) => {
 if (user) {
-  console.log('user has signed in or up');
+  //console.log('user has signed in or up');
   browserHistory.replace('/Home');
 
         //waits 2 seconds "kunstpause"
         //NEED TO STOP????????
       //  setTimeout(() => { this.setState({ loggedIn: true }); }, 2000);
 } else {
-  console.log('user has signed out or still needs to sign in.');
+  //console.log('user has signed out or still needs to sign in.');
   browserHistory.replace('/App');
         //waits 2 seconds "kunstpause"
         //setTimeout(() => { this.setState({ loggedIn: false }); }, 2000);

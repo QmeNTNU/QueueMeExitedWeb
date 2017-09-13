@@ -13,18 +13,18 @@ class ChooseStudass extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log('DIDMOUNT FIREBASE USER', firebase.auth().currentUser);
+      //console.log('DIDMOUNT FIREBASE USER', firebase.auth().currentUser);
 
       const { ref } = firebase.database().ref(`Subject/${this.props.subject}/studasslist/`);
       this.props.studAssListFetch({ ref });
     } else {
-console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
+//console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
     });
   }
 
   onPress(studass) {
-    console.log('CLICKED', studass);
+    //console.log('CLICKED', studass);
     this.props.setInfo({ prop: 'studass', value: studass.fullname });
     this.props.setInfo({ prop: 'available', value: studass.available });
     this.props.setInfo({ prop: 'studassLocation', value: studass.userUID });

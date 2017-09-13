@@ -23,7 +23,7 @@ componentDidMount() {
     this.props.getCount({ ref });
       window.addEventListener("beforeunload", this.onUnload);
   } else {
-console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
+    //console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         }
   });
 
@@ -43,7 +43,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 }
 
 onUnload(event) { // the method that will be used for both add and remove event
-        console.log("hellooww")
+        //console.log("hellooww")
         event.returnValue = "If you refresh, you will be deleted from this queue!";
     }
     componentWillUnmount() {
@@ -66,7 +66,7 @@ this.props.deleteQueue(deleteRef);
 onNextPress() {
   const userUID = firebase.auth().currentUser.uid;
   const firstUID = this.props.firstKey;
-  console.log('firstKey', firstUID);
+  //console.log('firstKey', firstUID);
   const nextRef = firebase.database().ref(`Subject/${this.props.studassSubject}/studasslist/${userUID}/queue/${firstUID}`);
 if (this.props.first !== 'There are no students in line') {
   this.props.nextDelete(nextRef);
@@ -249,7 +249,7 @@ renderScreen() {
 }
 
   render() {
-      console.log(this.props);
+      //console.log(this.props);
     return (
       this.renderScreen()
       );

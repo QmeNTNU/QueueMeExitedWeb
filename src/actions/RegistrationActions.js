@@ -106,7 +106,7 @@ const selectedGenderValidation =
 
 const emailValidation =
 ({ dispatch, signupEmail, signupPassword, fullname, gender }) => {
-  console.log('EMAIL VERIFY');
+  //console.log('EMAIL VERIFY');
     if (signupEmail.includes('stud.ntnu.no')) {
       userValidation({ dispatch, signupEmail, signupPassword, fullname, gender });
     } else {
@@ -116,7 +116,7 @@ const emailValidation =
 
 const userValidation = ({ dispatch, signupEmail, signupPassword, fullname, gender }) => {
   //dispatch er en metode (funksjon)
-  console.log('ABOUT TO CREATE USER');
+  //console.log('ABOUT TO CREATE USER');
     firebase.auth().createUserWithEmailAndPassword(signupEmail, signupPassword)
     .then(user =>
       //sets name to firebase user
@@ -132,7 +132,7 @@ const createUserSuccess = (dispatch, user, signupEmail, signupPassword, fullname
     payload: user
   });
   createUserInFireBase(signupEmail, signupPassword, fullname, gender);
-  console.log('LOGIN SUCCESS');
+  //console.log('LOGIN SUCCESS');
 
 };
 
@@ -158,14 +158,14 @@ const fullnameError = (dispatch) => {
   dispatch({
     type: FULLNAME_WRONG
   });
-  console.log('REGISRTATION FAILED-Please enter both your firstname and lastname');
+  //console.log('REGISRTATION FAILED-Please enter both your firstname and lastname');
   alertNotify(dispatch, 'Please enter both your firstname and lastname');
 };
 const emptyPasswordError = (dispatch) => {
   dispatch({
       type: EMPTY_PASSWORD
   });
-  console.log('REGISRTATION FAILED-Please enter a password');
+  //console.log('REGISRTATION FAILED-Please enter a password');
   alertNotify(dispatch, 'Please enter a password');
 
 };
@@ -173,7 +173,7 @@ const shortPassword = (dispatch) => {
   dispatch({
       type: SHORT_PASSWORD
   });
-    console.log('REGISRTATION FAILED-Your password must be longer than, or equal to, 6 charcters');
+    //console.log('REGISRTATION FAILED-Your password must be longer than, or equal to, 6 charcters');
     alertNotify(dispatch, 'Your password must be longer than, or equal to, 6 charcters');
 
 };
@@ -181,7 +181,7 @@ const passwordError = (dispatch) => {
   dispatch({
     type: PASSWORD_WRONG
   });
-  console.log('REGISRTATION FAILED-Make sure your passwords are equal');
+  //console.log('REGISRTATION FAILED-Make sure your passwords are equal');
   alertNotify(dispatch, 'Make sure your passwords are equal');
 
 };
@@ -190,7 +190,7 @@ const genderError = (dispatch) => {
   dispatch({
       type: SELECT_GENDER
   });
-  console.log('REGISRTATION FAILED-Make sure your passwords are equal-Please select a gender');
+  //console.log('REGISRTATION FAILED-Make sure your passwords are equal-Please select a gender');
   alertNotify(dispatch, 'Make sure your passwords are equal-Please select a gender');
 
 };
@@ -199,7 +199,7 @@ const createUserFail = (dispatch) => {
   dispatch({
     type: CREATE_USER_FAIL
   });
-  console.log('REGISRTATION FAILED-Your entered email are already in use');
+  //console.log('REGISRTATION FAILED-Your entered email are already in use');
   alertNotify(dispatch, 'Something went wrong. Make sure your did not enter a email that is already in use');
 
 };
@@ -208,7 +208,7 @@ const emailError = (dispatch) => {
   dispatch({
     type: EMAIL_WRONG
   });
-  console.log('REGISRTATION FAILED-Your email must contain "stud.ntnu.no"');
+  //console.log('REGISRTATION FAILED-Your email must contain "stud.ntnu.no"');
   alertNotify(dispatch, 'Your email must contain "stud.ntnu.no"');
 
 };

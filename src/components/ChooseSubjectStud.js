@@ -14,28 +14,28 @@ class ChooseSubjectStud extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log('DIDMOUNT FIREBASE USER', firebase.auth().currentUser);
+      //console.log('DIDMOUNT FIREBASE USER', firebase.auth().currentUser);
 
       this.props.favoriteStudentSubjectListFetch();
 
 
 
-      
+
     } else {
-console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
+//console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
     });
   }
 
   onPress(subject) {
-    console.log('CLICKED', subject);
+    //console.log('CLICKED', subject);
       this.props.setInfo({ prop: 'subject', value: subject });
 
   }
 
   render() {
-    console.log('FIREBASE USER', firebase.auth().currentUser);
-    console.log('SUBJECT LIST', this.props.favoriteStudentSubjectList);
+    //console.log('FIREBASE USER', firebase.auth().currentUser);
+    //console.log('SUBJECT LIST', this.props.favoriteStudentSubjectList);
     return (
       <div>
       <div className="App">

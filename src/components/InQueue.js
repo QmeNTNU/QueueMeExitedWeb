@@ -20,17 +20,17 @@ componentDidMount() {
     const { ref } = firebase.database().ref(`Subject/${this.props.subject}/studasslist/${this.props.studassLocation}/queue`);
       //starts the listener for
     this.props.getCount({ ref });
-    console.log('-----------');
+    //console.log('-----------');
     this.props.findMyPlaceInLine({ ref });
     window.addEventListener("beforeunload", this.onUnload);
   } else {
-console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
+    //console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         }
   });
 }
 
 onUnload(event) { // the method that will be used for both add and remove event
-        console.log("hellooww")
+        //console.log("hellooww")
         event.returnValue = "If you refresh, you will be deleted from this queue!";
     }
     componentWillUnmount() {
@@ -125,7 +125,7 @@ renderScreen() {
 }
 
   render() {
-      console.log(this.props);
+      //console.log(this.props);
     return (
       this.renderScreen()
       );

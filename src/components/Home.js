@@ -20,11 +20,11 @@ class Home extends Component {
       this.props.getMyGender();
       this.props.fetchCode();
       const user = firebase.auth().currentUser.displayName;
-      console.log('FIREBASE USER NAME', user);
+    //  console.log('FIREBASE USER NAME', user);
 
 
     } else {
-console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
+//console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
     });
 
@@ -36,7 +36,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
   }
 
   onStudassPress(){
-    if (this.props.retrievedCode !== ''){
+    if (this.props.retrievedCode !== '' && this.props.retrievedCode !== null && this.props.retrievedCode !== undefined){
       var OneSignal = window.OneSignal || [];
       console.log('ONESIGNAL HOME', OneSignal);
       OneSignal.push(function() {
@@ -47,7 +47,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
 
     }else {
       var OneSignal = window.OneSignal || [];
-      console.log('ONESIGNAL HOME', OneSignal);
+      //console.log('ONESIGNAL HOME', OneSignal);
       OneSignal.push(function() {
   OneSignal.registerForPushNotifications();
 
@@ -60,7 +60,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
   }
 
   render() {
-    console.log('RETRIEVEDCODE', this.props.retrievedCode);
+  //console.log('RETRIEVEDCODE', this.props.retrievedCode === null);
 
     return (
       <div>

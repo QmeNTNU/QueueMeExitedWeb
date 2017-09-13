@@ -37,7 +37,7 @@ class SignUp extends Component {
   }
 
   onButtonPress() {
-    console.log('SIGNING UP');
+    //console.log('SIGNING UP');
     const { signupEmail, signupPassword, confirmPassword, fullname } = this.props;
     const { gender } = this.state;
     this.props.createUser({ signupEmail, signupPassword, confirmPassword, fullname, gender });
@@ -124,10 +124,10 @@ class SignUp extends Component {
     }
   }
   render() {
-    console.log(this.state);
-    console.log(this.props);
-    console.log(this.props.alertMessage);
-    console.log('FIREBASE USER', firebase.auth().currentUser);
+    //console.log(this.state);
+    //console.log(this.props);
+    //console.log(this.props.alertMessage);
+    //console.log('FIREBASE USER', firebase.auth().currentUser);
     //if alertmessage has been updated, show it and set it to null
     //if i dont set to null, it will showe aT EVERY RENDER
     if(this.props.alertMessage !== '') {

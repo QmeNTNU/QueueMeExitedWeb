@@ -9,7 +9,7 @@ import {
 
 export const getMyName = () => {
   const userUID = firebase.auth().currentUser.uid;
-  console.log('USERUID', userUID);
+  //console.log('USERUID', userUID);
   const { ref } = firebase.database().ref(`users/${userUID}/fullname`);
   return (dispatch) => {
         ref.on('value', snapshot => {

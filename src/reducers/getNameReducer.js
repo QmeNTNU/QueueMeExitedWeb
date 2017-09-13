@@ -13,10 +13,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
       case GET_MY_NAME:
-      console.log('My name', action);
+      //console.log('My name', action);
         return { ...state, myName: action.payload };
       case GET_MY_GENDER:
-        console.log('My Gender', action);
+        //console.log('My Gender', action);
           return { ...state, myGender: action.payload };
       case FIRST_TIME:
         return { ...state, firstTime: action.payload };

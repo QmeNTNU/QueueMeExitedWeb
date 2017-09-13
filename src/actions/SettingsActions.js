@@ -10,7 +10,7 @@ export const LogOutPress = () => {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
     firebase.auth().signOut();
-    console.log('LOGUT SUCCESS');
+    //console.log('LOGUT SUCCESS');
     //Actions.auth({ type: 'reset' });
   };
 };

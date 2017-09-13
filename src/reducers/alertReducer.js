@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
       case  ALERT_MESSAGE:
-      console.log(action);
+      //console.log(action);
         return { ...state, alertMessage: action.payload };
       default:
         return state;
