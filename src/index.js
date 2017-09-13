@@ -37,7 +37,7 @@ if (user) {
       //  setTimeout(() => { this.setState({ loggedIn: true }); }, 2000);
 } else {
   //console.log('user has signed out or still needs to sign in.');
-  browserHistory.replace('/App');
+  browserHistory.replace('/Login');
         //waits 2 seconds "kunstpause"
         //setTimeout(() => { this.setState({ loggedIn: false }); }, 2000);
       }
@@ -49,7 +49,7 @@ if (user) {
 ReactDOM.render(
   <Provider store={store}>
   <Router path="/" history={browserHistory}>
-    <Route path="/app" component={App} />
+    <Route path="/Login" component={App} />
     <Route path="/SignIn" component={SignIn} />
     <Route path="/SignUp" component={SignUp} />
     <Route path="/alert" component={alert} />
