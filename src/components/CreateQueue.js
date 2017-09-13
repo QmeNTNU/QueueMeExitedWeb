@@ -17,22 +17,22 @@ class CreateQueue extends Component {
     firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       this.checkRecover();
-      console.log('FIREBASE USER NAME', user);
+      //console.log('FIREBASE USER NAME', user);
     } else {
-console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
+      //console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
           }
     });
 
   }
 
   checkRecover() {
-    console.log('Checkrecover');
+    //console.log('Checkrecover');
     const userUID = firebase.auth().currentUser.uid;
     if (this.props.studassSubject !== '') {
     ///////////////////////CHECKS IF EXIST AS STUDENT assistant//////////////////////////////////
           const ref = firebase.database().ref(`Subject/${this.props.studassSubject}/studasslist`);
                 ref.once('value', snapshot => { // only called once
-              console.log(snapshot.val() === null);
+              //console.log(snapshot.val() === null);
               //if the queue is empty ( in case studass deletes it)
               //we jump over iterating becouse we know we are not there
               if (snapshot.val() === null) {
@@ -40,8 +40,8 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
               }
               snapshot.forEach(childSnapshot => {
                 //should recover studasqueue if userid existst at location
-                console.log('CHILD_UID', childSnapshot.val().userUID);
-                console.log('MY_UID', userUID);
+                //console.log('CHILD_UID', childSnapshot.val().userUID);
+                //console.log('MY_UID', userUID);
 
                 if (userUID === childSnapshot.val().userUID) {
                   //sets needed values to state
@@ -58,7 +58,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         ////////////////CHECKS IF ADDED TO A LINE/////////////////////////////////////////////
         const { studRef } = firebase.database().ref(`Subject/${this.props.subject}/studasslist/${this.props.studassLocation}/queue`);
               studRef.once('value', snapshot => { // only called once
-            console.log(snapshot.val() === null);
+            //console.log(snapshot.val() === null);
             //if the queue is empty ( in case studass deletes it)
             //we jump over iterating becouse we know we are not there
             if (snapshot.val() === null) {
@@ -66,8 +66,8 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
             }
             snapshot.forEach(childSnapshot => {
               //should recover studasqueue if userid existst at location
-              console.log('CHILD_UID', childSnapshot.val().userUID);
-              console.log('MY_UID', userUID);
+              //console.log('CHILD_UID', childSnapshot.val().userUID);
+              //console.log('MY_UID', userUID);
 
               if (userUID === childSnapshot.val().userUID) {
                 //sets needed values to state
@@ -95,7 +95,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
   onButtonPress() {
     //retireves the availible input from state
     const { available, room, myGender } = this.props;
-    console.log('QUEUEUEUEUEUEUEUEEUEUE', available, room, myGender);
+    //console.log('QUEUEUEUEUEUEUEUEEUEUE', available, room, myGender);
     const userUID = firebase.auth().currentUser.uid;
     //NOT RETTRIEVE EVERY TIME
     //WHEN I WANT TO TAKE IN VARIABLES, I NEED TO WRITE IT AS .CHILD
@@ -150,7 +150,7 @@ console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
       })
     }
   render() {
-    console.log('SUBJECT', this.props.studassSubject);
+    //console.log('SUBJECT', this.props.studassSubject);
     if(this.props.alertMessage !== '') {
       this.showAlert();
       this.props.alertNotify('');

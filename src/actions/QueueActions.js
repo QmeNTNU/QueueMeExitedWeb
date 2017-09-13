@@ -13,7 +13,7 @@ export const firstInLine = ({ ref }) => {
     let empty = false;
       ref.on('value', snapshot => {
     // The callback function should be called for every update in database
-    console.log(snapshot.val() === null);
+    //console.log(snapshot.val() === null);
     //if the queue is empty ( in case studass deletes it)
     if (snapshot.val() === null) {
       dispatch({ type: FIRST_CHANGED, payload: emptyText });
@@ -22,9 +22,9 @@ export const firstInLine = ({ ref }) => {
     }
 
     snapshot.forEach(childSnapshot => {
-      console.log('emptyboolean', empty);
+      //console.log('emptyboolean', empty);
 
-      console.log('firstKey', childSnapshot.key);
+      //console.log('firstKey', childSnapshot.key);
       dispatch({ type: FIRST_CHANGED, payload: childSnapshot.val().fullname });
       dispatch({ type: FIRST_KEY, payload: childSnapshot.key });
       dispatch({ type: FIRST_GENDER, payload: childSnapshot.val().userGender });
@@ -35,7 +35,7 @@ export const firstInLine = ({ ref }) => {
       /*if (playerId === null) {
         playerId = 'edfc360f-75b6-43db-a0c3-6dd3fd866947';
       }*/
-      console.log(playerId, 'hei tjolla hopp');
+      //console.log(playerId, 'hei tjolla hopp');
 
       if (typeof playerId !== 'undefined') {
         if (typeof firstBoolean === 'undefined') {
@@ -45,7 +45,7 @@ export const firstInLine = ({ ref }) => {
 
       //OneSignal.postNotification(contents, data, playerId);
       var OneSignal = window.OneSignal || [];
-      console.log('ONESIGNAL HOME', OneSignal);
+      //console.log('ONESIGNAL HOME', OneSignal);
 
       OneSignal.push(function() {
         // Occurs when the user's subscription changes to a new value.
@@ -66,14 +66,14 @@ headers: headers
 var https = require('https');
 var req = https.request(options, function(res) {
 res.on('data', function(data) {
-  console.log("Response:");
-  console.log(JSON.parse(data));
+  //console.log("Response:");
+  //console.log(JSON.parse(data));
 });
 });
 
 req.on('error', function(e) {
 console.log("ERROR:");
-console.log(e);
+//console.log(e);
 });
 
 req.write(JSON.stringify(data));
@@ -109,7 +109,7 @@ export const fetchQueue = ({ ref }) => {
   return (dispatch) => {
         ref.on('value', snapshot => {
           dispatch({ type: QUEUE_FETCH_SUCCESS, payload: snapshot.val() });
-          console.log('queue', snapshot.val());
+          //console.log('queue', snapshot.val());
       });
   };
 };
@@ -133,7 +133,7 @@ export const nextDelete = (nextRef) => {
   return () => {
     nextRef.remove()
     .then(() => {
-      console.log('SUCCESSNEXTDELETE');
+      //console.log('SUCCESSNEXTDELETE');
       //find something to catch ect to secure state
     });
   };

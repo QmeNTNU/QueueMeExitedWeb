@@ -15,7 +15,7 @@ export const codeChanged = (text) => {
 
 export const fetchCode = () => {
   const userUID = firebase.auth().currentUser.uid;
-  console.log('USERUID', userUID);
+  //console.log('USERUID', userUID);
   const { ref } = firebase.database().ref(`users/${userUID}/code/code`);
   return (dispatch) => {
     //should change to once?
@@ -51,7 +51,7 @@ export const addCode = ({ code }) => {
 };
 
 const validateInput = (code) => {
-  console.log(code);
+  //console.log(code);
 //gets input from the avaiable prop, and checks if it is on correct format
 if (code === '8825') {
   return true;

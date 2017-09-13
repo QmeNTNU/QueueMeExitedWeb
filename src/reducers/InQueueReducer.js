@@ -9,7 +9,7 @@ export default (state = INITIAL_STATE, action) => {
     case DELETED_ME_FROM_QUEUE:
       return state;
      case FOUND_MY_PLACE:
-     console.log(action);
+     //console.log(action);
       return { ...state, place: action.payload, firstboolean: false };
       case QUIT:
        return { ...state, quit: true };

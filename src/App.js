@@ -17,7 +17,7 @@ renderSignInOrSignOut() {
 }
 
   render() {
-    console.log(this.props.renderAuthConst);
+    //console.log(this.props.renderAuthConst);
     return (
       <div>
       <div className="App">

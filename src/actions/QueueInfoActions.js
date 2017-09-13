@@ -39,7 +39,7 @@ export const addToQueue = ({ ref, myGender }) => {
     newRef.set({ fullname, userEmail, userUID, userGender }) //sets the value
     .then(() => {
       dispatch({ type: ADDED_TO_QUEUE, payload: key }); //resets the state field
-      console.log('QUEUEINFOREDUCER--------------');
+      //console.log('QUEUEINFOREDUCER--------------');
       browserHistory.push('/InQueue');
 
      }); //Reset means no backbutton

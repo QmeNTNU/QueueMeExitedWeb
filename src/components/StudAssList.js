@@ -3,7 +3,7 @@ import StudAssListItem from './StudAssListItem';
 
 const StudAssList = (props) => {
 const studassItems = props.studass.map((studass) => {
-  console.log('KEY',studass.uid);
+  //console.log('KEY',studass.uid);
   //best practise to have a key in the list so it doesent need to render intire list every time
   return (
     <StudAssListItem

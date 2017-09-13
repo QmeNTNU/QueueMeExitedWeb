@@ -31,7 +31,7 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     //her settes email (osv..) til det som skrives inn av brukeren
     case FULLNAME_CHANGED:
-    console.log(action);
+    //console.log(action);
       return { ...state, fullname: action.payload };
     case SIGNUP_EMAIL_CHANGED:
       return { ...state, signupEmail: action.payload };

@@ -117,7 +117,7 @@ html, body, #reactapp, .App {
   color: #ffffff;
   font-size: large;
   font-family: 'bebasNeue';
-
+  text-align: center;
 }
 .info{
   height: 60px;
@@ -135,6 +135,9 @@ html, body, #reactapp, .App {
 
 .info-image {
   height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 .home-main {
   display: flex;

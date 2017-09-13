@@ -37,9 +37,9 @@ class SignIn extends Component {
     }
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
-    console.log(this.props.alertMessage);
+    //console.log(this.state);
+    //console.log(this.props);
+    //console.log(this.props.alertMessage);
     //if alertmessage has been updated, show it and set it to null
     //if i dont set to null, it will showe aT EVERY RENDER
     if(this.props.alertMessage !== '') {

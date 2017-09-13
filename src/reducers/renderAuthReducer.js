@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
       case  SET_RENDER_AUTH:
-      console.log(action);
+      //console.log(action);
         return { ...state, renderAuthConst: action.payload };
       default:
         return state;

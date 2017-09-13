@@ -38,7 +38,7 @@ class StudassLockUp extends Component {
     }
 
   render() {
-    console.log(this.props.code);
+    //console.log(this.props.code);
     if(this.props.alertMessage !== '') {
       this.showAlert();
       this.props.alertNotify('');

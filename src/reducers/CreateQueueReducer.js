@@ -20,7 +20,7 @@ export default (state = INITIAL_STATE, action) => {
     //STUPID TO HAVE STUDSUBJECT AND MYLOCATION HERE
         return { ...state, available: '', room: '', error: '', loading: false, first: 'There are no students in line' };
     case FIRST_CHANGED:
-    console.log(action);
+    //console.log(action);
         //keeps track of the first person in line to display to scrrem
         return { ...state, first: action.payload };
     case MY_LOCATION:
@@ -28,10 +28,10 @@ export default (state = INITIAL_STATE, action) => {
     case FIRST_KEY:
       return { ...state, firstKey: action.payload };
     case STUD_SUBJECT:
-    console.log('subject': action);
+    //console.log('subject': action);
       return { ...state, studassSubject: action.payload };
     case FIRST_GENDER:
-      console.log('gender': action);
+      //console.log('gender': action);
       return { ...state, firstGender: action.payload };
       case DELETE_QUEUE:
         return INITIAL_STATE;
