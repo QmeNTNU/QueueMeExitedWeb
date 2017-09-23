@@ -8,6 +8,13 @@ import { getCount, deleteMeFromQueue, findMyPlaceInLine } from '../actions';
 import Settings from './Settings';
 
 class InQueue extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    shown: false,
+    start: true
+  };
+}
 
   //want to watch for a queue the instant the scene is loaded
   componentWillMount() {
@@ -23,6 +30,12 @@ componentDidMount() {
     //console.log('-----------');
     this.props.findMyPlaceInLine({ ref });
     window.addEventListener("beforeunload", this.onUnload);
+    const that=this;
+    setTimeout(function() {
+      //sets boolean to false so that it can begin to check if it is first.
+      //if it dont it will be called based on last state
+      that.setState({start:false})
+    }, 1000)
   } else {
     //console.log('CHOOSESUBJECT RENDERED BUT WITHOUT LOGIN');
         }
@@ -72,6 +85,14 @@ renderImage() {
 //depeding if the queue is empty, and depending on the first persons gender,
 //we want to render the screen differently
 renderScreen() {
+
+  if (this.props.place===1 && !this.state.shown && !this.state.start){
+    this.setState({shown:true});
+    setTimeout(function() {
+      alert("It's your turn! Go find your student assistant.");
+    }, 500)
+
+  }
 
     return (
       <div>

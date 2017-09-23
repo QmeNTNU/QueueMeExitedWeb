@@ -9,7 +9,7 @@ html, body, #reactapp, .App {
   flex-direction: column;
   align-items: stretch;
   min-height: 100vh;
-
+  background-color: #f58c6c;
 
 }
 .header-image{
@@ -38,6 +38,22 @@ html, body, #reactapp, .App {
   font-family: 'bebasNeue';
 
 }
+.AppBlue {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 50vh;
+  background-color: #f58c6c;
+  color: #ffffff;
+  font-size: large;
+  font-family: 'bebasNeue';
+  padding: 20px;
+
+}
+
 .header-image{
   display: flex;
   flex: 5;
@@ -120,21 +136,31 @@ html, body, #reactapp, .App {
   text-align: center;
 }
 .info{
-  height: 60px;
-  flex-direction: column;
+  display: flex;
+  width:80%;
+
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .under-info {
-  height: 40px;
+  flex:1;
+  width: 20%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 5px;
 
 }
 
 .info-image {
   height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+.info-image2 {
+width:20vW;
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 5px;
