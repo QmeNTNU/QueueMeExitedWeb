@@ -5,11 +5,22 @@ import SubjectStudList from './SubjectStudList';
 import CreateQueue from './CreateQueue';
 import '../App.css';
 import { connect } from 'react-redux';
+import Modal from 'react-modal';
+
 import { favoriteStudentSubjectListFetch, setInfo } from '../actions';
 import { Link } from 'react-router';
 import Settings from './Settings';
+import AddSubject from './addSubject';
+
 
 class ChooseSubjectStud extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      modalOpen: false
+    };
+  }
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
@@ -65,7 +76,13 @@ class ChooseSubjectStud extends Component {
 
         </div>
         <div  className="low-text">
-          <h3 className="header-textphoto" >To manage subjects, download the QueueMe app</h3>
+          <button onClick={() => this.setState({ modalOpen: true })}
+            className="btn btn-primary"
+            type="button"
+            style={{ width: '100%', backgroundColor: '#F58C6C', borderWidth: 0, borderRadius: 0, height: '10vh'}}
+          >
+          Manage your subjects
+          </button>
         </div>
 
       </div>
@@ -78,6 +95,32 @@ class ChooseSubjectStud extends Component {
           <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
         </div>
         </div>
+
+        <Modal
+          isOpen={this.state.modalOpen}
+
+          className={{
+            base: 'addsubject',
+            afterOpen: 'addsubject',
+            beforeClose: 'addsubject'
+          }}
+
+
+        >
+              <div className="addsubjectList">
+
+
+                <AddSubject/>
+
+                      <button onClick={() => this.setState({ modalOpen: false })}
+                        className="btn btn-primary"
+                        type="button"
+                        style={{ width: '100%', backgroundColor: '#F58C6C', borderWidth: 0, borderRadius: 0}}
+                      >
+                        Back
+                      </button>
+              </div>
+        </Modal>
     </div>
     );
   }

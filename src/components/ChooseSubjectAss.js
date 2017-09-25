@@ -5,13 +5,21 @@ import SubjectAssList from './SubjectAssList';
 import CreateQueue from './CreateQueue';
 import { Link } from 'react-router';
 import Settings from './Settings';
-
+import Modal from 'react-modal';
+import ReactScrollbar from 'react-scrollbar-js';
 import '../App.css';
 import { connect } from 'react-redux';
 import { favoriteAssSubjectListFetch, studassSubject } from '../actions';
+import AddSubject from './addSubjectAss';
 
 class ChooseSubjectAss extends Component {
+  constructor() {
+    super();
 
+    this.state = {
+      modalOpen: false
+    };
+  }
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -61,7 +69,13 @@ class ChooseSubjectAss extends Component {
 
     </div>
     <div  className="low-text">
-      <h3 className="header-textphoto" >To manage subjects, download the QueueMe app</h3>
+      <button onClick={() => this.setState({ modalOpen: true })}
+        className="btn btn-primary"
+        type="button"
+        style={{ width: '100%', backgroundColor: '#F58C6C', borderWidth: 0, borderRadius: 0, height: '10vh'}}
+      >
+      Manage your subjects
+      </button>
     </div>
 
     </div>
@@ -74,6 +88,31 @@ class ChooseSubjectAss extends Component {
         <img src={require('./images/googleplay.png')} className="info-image" alt="logo" />
       </div>
       </div>
+      <Modal
+        isOpen={this.state.modalOpen}
+
+        className={{
+          base: 'addsubject',
+          afterOpen: 'addsubject',
+          beforeClose: 'addsubject'
+        }}
+
+
+      >
+            <div className="addsubjectList">
+
+
+              <AddSubject/>
+
+                    <button onClick={() => this.setState({ modalOpen: false })}
+                      className="btn btn-primary"
+                      type="button"
+                      style={{ width: '100%', backgroundColor: '#F58C6C', borderWidth: 0, borderRadius: 0}}
+                    >
+                      Back
+                    </button>
+            </div>
+      </Modal>
   </div>
     );
   }

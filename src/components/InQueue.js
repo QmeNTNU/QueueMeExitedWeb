@@ -90,7 +90,7 @@ renderScreen() {
     this.setState({shown:true});
     setTimeout(function() {
       alert("It's your turn! Go find your student assistant.");
-    }, 500)
+    }, 700)
 
   }
 
