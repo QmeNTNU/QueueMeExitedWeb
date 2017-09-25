@@ -14,6 +14,8 @@ import QueueInfoReducer from './QueueInfoReducer';
 import StudAssListReducer from './StudAssListReducer';
 import InQueueReducer from './InQueueReducer';
 import StudassLockUpReducer from './StudassLockUpReducer';
+import addSubjectStudReducer from './addSubjectStudReducer';
+import addSubjectAssReducer from './addSubjectAssReducer';
 
 
 export default combineReducers({
@@ -32,6 +34,8 @@ export default combineReducers({
   studAssList: StudAssListReducer,
   inQueue: InQueueReducer,
   lock: StudassLockUpReducer,
+  addSubjectStud: addSubjectStudReducer,
+  addSubjectAss: addSubjectAssReducer
 
 
 });

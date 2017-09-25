@@ -15,6 +15,8 @@ import SignUp from './components/SignUp';
 import alert from './components/alert';
 import Home from './components/Home';
 import Settings from './components/Settings';
+import addSubject from './components/addSubject';
+
 import ChooseSubjectAss from './components/ChooseSubjectAss';
 import ChooseSubjectStud from './components/ChooseSubjectStud';
 import ChooseStudass from './components/ChooseStudass';
@@ -55,6 +57,8 @@ ReactDOM.render(
     <Route path="/alert" component={alert} />
     <Route path="/Home" component={Home} />
     <Route path="/Settings" component={Settings} />
+    <Route path="/addSubject" component={addSubject} />
+
     <Route path="/ChooseSubjectAss" component={ChooseSubjectAss} />
     <Route path="/CreateQueue" component={CreateQueue} />
     <Route path="/StudassQueue" component={StudassQueue} />
