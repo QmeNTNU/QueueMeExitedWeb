@@ -207,7 +207,7 @@ renderaddOrDeleteButtons() {
 
 
 
-        <ReactScrollbar className="list-container" style={{height: 300, overflow: 'scroll', width: '100%'}}>
+        <ReactScrollbar className="list-container-scroll">
 
           {this.renderList()}
 

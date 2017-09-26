@@ -261,6 +261,21 @@ width:20vW;
 
   font-family: 'bebasNeue';
 }
+
+.list-container-scroll {
+  display: flex;
+  flex-grow: 10;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #95CAFE;
+  padding: 20px;
+  height: 50vh;
+  width: 100%;
+  color: white;
+
+  font-family: 'bebasNeue';
+}
 .list-main {
   display: flex;
   flex-grow: 1;
