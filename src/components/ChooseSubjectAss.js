@@ -90,6 +90,7 @@ class ChooseSubjectAss extends Component {
       </div>
       <Modal
         isOpen={this.state.modalOpen}
+        onRequestClose={() => this.setState({ modalOpen: false })}
 
         className={{
           base: 'addsubject',

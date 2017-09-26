@@ -437,10 +437,10 @@ width:20vW;
   }
   .addsubject{
 
-    margin-left: 15vw;
-    margin-right: 15vw;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 
     display: flex;
     flex-direction: column;
@@ -452,4 +452,5 @@ width:20vW;
 
     font-family: 'bebasNeue';
   }
+
 }
