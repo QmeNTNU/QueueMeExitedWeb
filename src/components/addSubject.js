@@ -86,8 +86,8 @@ class addSubject extends Component {
 
 
   const listItems =list.map((subject) =>
-    <li
-      style={{ listStyleType: 'none', width: '100%'}}
+    <Link
+      style={{ listStyleType: 'none', width: '100%', textDecoration: 'none'}}
       onClick={() => this.onDeletePress(subject.emnekode, subject.emnenavn)}
       key={subject.uid} >
       <div className="listItem">
@@ -101,7 +101,7 @@ class addSubject extends Component {
           </div>
         </div>
         </div>
-    </li>
+    </Link>
 
     );
     return (
@@ -116,8 +116,8 @@ class addSubject extends Component {
 
 
  const listItems =list.map((subject) =>
-   <li
-     style={{ listStyleType: 'none', width: '100%'}}
+   <Link
+     style={{ listStyleType: 'none', width: '100%', textDecoration: 'none'}}
      onClick={() => this.onAddPress(subject.emnekode, subject.emnenavn)}
      key={subject.uid} >
      <div className="listItem">
@@ -131,7 +131,7 @@ class addSubject extends Component {
          </div>
        </div>
        </div>
-   </li>
+   </Link>
 
    );
    return (
