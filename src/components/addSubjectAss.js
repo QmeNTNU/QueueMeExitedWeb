@@ -16,7 +16,7 @@ import Settings from './Settings';
 import AddSubject from './addSubject';
 
 
-class addSubject extends Component {
+class addSubjectAss extends Component {
   state = { addOrDelete: 'add' };
 
 
@@ -88,8 +88,8 @@ class addSubject extends Component {
 
 
   const listItems =list.map((subject) =>
-    <li
-      style={{ listStyleType: 'none', width: '100%'}}
+  <Link
+    style={{ listStyleType: 'none', width: '100%', textDecoration: 'none'}}
       onClick={() => this.onDeletePress(subject.emnekode, subject.emnenavn)}
       key={subject.uid} >
       <div className="listItem">
@@ -103,7 +103,7 @@ class addSubject extends Component {
           </div>
         </div>
         </div>
-    </li>
+      </Link>
 
     );
     return (
@@ -118,8 +118,8 @@ class addSubject extends Component {
 
 
   const listItems =list.map((subject) =>
-   <li
-     style={{ listStyleType: 'none', width: '100%'}}
+  <Link
+    style={{ listStyleType: 'none', width: '100%', textDecoration: 'none'}}
      onClick={() => this.onAddPress(subject.emnekode, subject.emnenavn)}
      key={subject.uid} >
      <div className="listItem">
@@ -133,7 +133,7 @@ class addSubject extends Component {
          </div>
        </div>
        </div>
-   </li>
+     </Link>
 
    );
    return (
@@ -209,7 +209,7 @@ class addSubject extends Component {
 
 
 
-        <ReactScrollbar className="list-container" style={{height: 300, overflow: 'scroll', width: '100%'}}>
+        <ReactScrollbar className="list-container-scroll">
 
           {this.renderList()}
 
@@ -233,8 +233,8 @@ const mapStateToProps = state => {
     return { ...val, uid };
   });
 
-  return { favoriteAssSubjectList, addSubjectArray, addSubject };
+  return { favoriteAssSubjectList, addSubjectArray };
 };
 
 export default connect(mapStateToProps,
-  { favoriteAssSubjectListFetch, getAddedSubject, deleteSubject, addSubject1 })(addSubject);
+  { favoriteAssSubjectListFetch, getAddedSubject, deleteSubject, addSubject1 })(addSubjectAss);

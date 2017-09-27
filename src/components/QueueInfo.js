@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import { BeatLoader } from 'react-spinners';
+
 import '../App.css';
 import { Link } from 'react-router';
 import Settings from './Settings';
@@ -10,6 +12,7 @@ import Settings from './Settings';
 import { setInfo, getCount, addToQueue } from '../actions';
 
 class QueueInfo extends Component {
+  state = { loading: false };
 
   //want to watch for a queue the instant the scene is loaded
   componentWillMount() {
@@ -28,6 +31,11 @@ componentDidMount() {
         }
   });
 }
+componentWillUnmount(){
+  this.setState({ loading: false });
+
+}
+
 
 checkRecover() {
   //console.log('Checkrecover');
@@ -98,13 +106,10 @@ onButtonBluePress() {
   const { ref } = firebase.database().ref(`Subject/${this.props.subject}/studasslist/${this.props.studassLocation}/queue`);
   //add user to queue and saves the push location to state
   //this location is used in next scene (in quit queue)
+  this.setState({ loading: true });
   this.props.addToQueue({ ref, myGender });
 }
 //when quiting queue
-
-
-
-
 
 
 renderImage() {
@@ -143,6 +148,33 @@ renderArrowDownImage() {
     />
   );
 /* eslint-enable global-require */
+}
+
+
+renderButton() {
+  //works as a checkbox for addOrDelete. highlits the button witch match the state
+
+  if (this.state.loading === false) {
+    return(
+      <button onClick={this.onButtonBluePress.bind(this)}
+        className="btn btn-primary"
+        style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, width: '100%', height: 60 }}
+      >
+        Add me to queue
+      </button>
+    );
+  }
+  if (this.state.loading === true) {
+    return(
+      <div className='spinner'>
+        <BeatLoader
+          color={'#fff'}
+          loading={this.state.loadSpinner}
+
+        />
+      </div>
+    );
+  }
 }
 
 //depeding if the queue is empty, and depending on the first persons gender,
@@ -201,12 +233,7 @@ renderScreen() {
 
 
                   <div style={{ height: 60, marginTop: 5, width: '100%' }}>
-                    <button onClick={this.onButtonBluePress.bind(this)}
-                      className="btn btn-primary"
-                      style={{ borderRadius: 5, backgroundColor: '#F58C6C', borderWidth: 0, width: '100%', height: 60 }}
-                    >
-                      Add me to queue
-                    </button>
+                  {this.renderButton()}
                   </div>
               </div>
                 <div className="queue-info-main"></div>
