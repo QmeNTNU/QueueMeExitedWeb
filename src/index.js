@@ -44,6 +44,21 @@ if (user) {
         //setTimeout(() => { this.setState({ loggedIn: false }); }, 2000);
       }
 });
+//calls init on onsignal (ONCE)
+const { ref } = firebase.database().ref(`OneSignal`);
+
+      ref.on('value', snapshot => {
+
+          var OneSignal = window.OneSignal || [];
+          OneSignal.push(["init", {
+            appId: snapshot.val().toString(),
+            autoRegister: true,
+            notifyButton: {
+              enable: false /* Set to false to hide */
+            }
+          }]);
+
+    });
 
 
 
