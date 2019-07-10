@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^4.2.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "node-onesignal-api": "0.0.2",
     "react": "^15.6.1",
     "react-alert": "^2.2.0",
